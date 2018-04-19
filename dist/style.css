@@ -6260,6 +6260,8 @@ header {
   position: absolute; }
   header .container-fluid .row .col-md-6 {
     padding: 0; }
+  header img {
+    margin-top: 5px; }
   header .mg {
     margin: 0; }
     header .mg input {
