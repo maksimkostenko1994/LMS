@@ -1,0 +1,45 @@
+{
+  "name": "integration_system",
+  "version": "1.0.0",
+  "description": "Integration system for MAMS",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack && webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maksimkostenko1994/integration_system.git"
+  },
+  "keywords": [],
+  "author": "Kostenko Maksym & Dyhdalo Andriy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maksimkostenko1994/integration_system/issues"
+  },
+  "homepage": "https://github.com/maksimkostenko1994/integration_system#readme",
+  "dependencies": {
+    "@types/webpack": "^4.1.3",
+    "ajv": "^6.4.0",
+    "angular": "~1.6.6",
+    "angular-filter": "^0.5.17",
+    "angular-resource": "^1.6.8",
+    "angular-route": "^1.6.8",
+    "angular-xml": "^2.2.2",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "body-parser": "~1.16.0",
+    "bootstrap": "~3.3.7",
+    "css-loader": "^0.28.11",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
+    "jquery": "~3.2.1",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.7",
+    "style-loader": "^0.20.3",
+    "webpack": "^3.11.0",
+    "webpack-dev-server": "^2.11.2",
+    "webpack-icons-installer": "^1.0.0"
+  }
+}
