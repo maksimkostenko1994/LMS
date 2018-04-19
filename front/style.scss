@@ -9,7 +9,7 @@ header {
   }
 
   img {
-    margin: 12px 20px;
+    margin-top: 5px;
   }
 
   .mg {
@@ -17,26 +17,57 @@ header {
     margin: 0;
 
     input {
-      min-height: 40px;
+      //min-height: 40px;
+      height: 35px;
       min-width: 100%;
-      margin-top: 25px;
+      margin-top: 30px;
       border-radius: 5px 0 0 5px;
       border: 1px solid black;
-      font-size: 25px;
-      line-height: 40px;
+      line-height: 35px;
       padding-left: 10px;
+      transition: height 0.1s, margin-top 0.1s;
+
+      &:focus {
+        font-size: 25px;
+        height: 40px;
+        margin-top: 28px;
+      }
     }
 
     .button {
-      min-height: 40px;
+      height: 35px;
       min-width: 100%;
-      margin-top: 25px;
+      margin-top: 30px;
       font-size: 20px;
       border: 1px solid black;
-      line-height: 40px;
+      line-height: 35px;
       background-color: #fff;
       border-radius: 0 5px 5px 0;
+      margin-left: -35px;
     }
 
+  }
+
+  .data {
+    font-size: 20px;
+    margin-top: 35px;
+    text-align: center;
+    transition: font-size 0.1s, margin-top 0.1s;
+    transition-timing-function: ease-out;
+
+    &:hover {
+      font-size: 22px;
+      margin-top: 34px;
+    }
+  }
+
+
+  a {
+    color: #f7f6f6;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: #ffffff;
   }
 }
