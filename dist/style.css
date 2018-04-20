@@ -6258,35 +6258,42 @@ header {
   min-width: 100%;
   background-color: #6ccc6d;
   position: absolute; }
-  header .container-fluid .row .col-md-6 {
-    padding: 0; }
   header img {
-    margin-top: 5px; }
-  header .mg {
-    margin: 0; }
-    header .mg input {
-      height: 35px;
-      min-width: 100%;
-      margin-top: 30px;
-      border-radius: 5px 0 0 5px;
-      border: 1px solid black;
-      line-height: 35px;
-      padding-left: 10px;
-      transition: height 0.1s, margin-top 0.1s; }
-      header .mg input:focus {
-        font-size: 25px;
-        height: 40px;
-        margin-top: 28px; }
-    header .mg .button {
-      height: 35px;
-      min-width: 100%;
-      margin-top: 30px;
-      font-size: 20px;
-      border: 1px solid black;
-      line-height: 35px;
-      background-color: #fff;
-      border-radius: 0 5px 5px 0;
-      margin-left: -35px; }
+    margin-top: 5px;
+    margin-left: 15px; }
+  header .div-container {
+    min-width: 100%;
+    margin-top: 27px;
+    border-radius: 5px 5px 5px 5px;
+    border: 1px solid black;
+    background: white;
+    padding-top: 5px;
+    padding-bottom: 5px; }
+  header input {
+    min-width: 100%;
+    height: 30px;
+    border: none;
+    line-height: 30px;
+    outline: none;
+    padding-left: 10px;
+    margin-left: 10px;
+    transition: height 1s; }
+    header input:focus {
+      height: 40px;
+      background-color: #e6e0e0;
+      font-size: 20px; }
+  header .button {
+    min-width: 100%;
+    height: 33px;
+    line-height: 33px;
+    border: none;
+    background-color: #fff;
+    color: #696868;
+    vertical-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px; }
+    header .button:hover {
+      color: black; }
   header .data {
     font-size: 20px;
     margin-top: 35px;
