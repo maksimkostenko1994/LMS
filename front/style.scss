@@ -40,12 +40,10 @@ header {
     outline: none;
     padding-left: 10px;
     margin-left: 10px;
-    transition: height 1s, background-color 1s;
+    transition: background-color 1s;
 
     &:focus {
-      height: 40px;
       background-color: rgba(0,0,0,0.1);
-      font-size: 20px;
     }
 
   }
@@ -57,13 +55,14 @@ header {
       padding-top: 7px;
       padding-bottom: 7px;
       font-size: 15px;
-      transition: font-size 0.5s, color 0.5s, padding-top 0.5s, padding-bottom 0.5s;
+      transition: font-size 0.2s, color 0.5s, padding-top 0.5s, padding-bottom 0.5s, padding-right 0.5s;
 
       &:hover {
         font-size: 20px;
         color: black;
-        padding-top: 5px;
-        padding-bottom: 5px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        padding-right: 3px;
       }
     }
 
