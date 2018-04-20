@@ -2,7 +2,6 @@ header {
   min-height: 100px;
   min-width: 100%;
   background-color: #6ccc6d;
-  position: absolute;
 
   img {
     margin-top: 5px;
@@ -92,4 +91,68 @@ header {
     text-decoration: none;
     color: #ffffff;
   }
+}
+
+section {
+  background-color: #c2ebc2;
+  width: 100%;
+  height: 500px;
+  text-align: center;
+  padding-top: 30px;
+
+  .services {
+    width: 100%;
+    padding: 10px 5px;
+    border: 1px solid black;
+    background: #43a144;
+  }
+
+  .views {;
+    width: 100%;
+    padding: 10px 5px;
+    border: 1px solid black;
+    background: #83de84;
+    height: 400px;
+  }
+
+  .news-mark {
+    width: 100%;
+    padding-top: 10px;
+    border: 1px solid black;
+    background: #43a144;
+    margin-top: 20px;
+
+    ul {
+      margin-left: -35px;
+    }
+  }
+
+  .news-sub {
+    width: 100%;
+    padding-top: 10px;
+    border: 1px solid black;
+    background: #43a144;
+
+    ul {
+      margin-left: -35px;
+    }
+  }
+
+  .news-teacher {
+    width: 100%;
+    padding: 10px 5px;
+    border: 1px solid black;
+    background: #43a144;
+    margin-top: 20px;
+
+    ul {
+      margin-left: -35px;
+    }
+  }
+}
+
+footer {
+  background: #ecca53;
+  height: 100px;
+  width: 100%;
 }

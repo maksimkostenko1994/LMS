@@ -6257,7 +6257,6 @@ header {
   min-height: 100px;
   min-width: 100%;
   background-color: #6ccc6d;
-  position: absolute;
   /*animation-name: rotate;
     animation-duration: 1s;
   }
@@ -6273,7 +6272,7 @@ header {
   }*/ }
   header img {
     margin-top: 5px;
-    margin-left: 15px; }
+    margin-left: 55px; }
   header .div-container {
     min-width: 100%;
     margin-top: 27px;
@@ -6290,14 +6289,22 @@ header {
     outline: none;
     padding-left: 10px;
     margin-left: 10px;
-    transition: height 1s, background-color 1s; }
+    transition: background-color 1s; }
     header input:focus {
-      height: 40px;
-      background-color: rgba(0, 0, 0, 0.1);
-      font-size: 20px; }
+      background-color: rgba(0, 0, 0, 0.1); }
   header .search-button {
-    padding-left: 10px;
-    margin-left: 10px; }
+    color: #dadada; }
+    header .search-button span {
+      padding-top: 7px;
+      padding-bottom: 7px;
+      font-size: 15px;
+      transition: font-size 0.2s, color 0.5s, padding-top 0.5s, padding-bottom 0.5s, padding-right 0.5s; }
+      header .search-button span:hover {
+        font-size: 20px;
+        color: black;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        padding-right: 3px; }
     header .search-button:hover {
       color: black; }
   header .data {
@@ -6314,3 +6321,41 @@ header {
   header a:hover {
     text-decoration: none;
     color: #ffffff; }
+
+section {
+  background-color: #c2ebc2;
+  width: 100%;
+  height: 500px;
+  text-align: center;
+  padding-top: 30px; }
+  section .services {
+    width: 100%;
+    padding: 10px 5px;
+    border: 1px solid black;
+    background: #43a144; }
+  section .views {
+    width: 100%;
+    padding: 10px 5px;
+    border: 1px solid black;
+    background: #83de84;
+    height: 400px; }
+  section .news-mark {
+    width: 100%;
+    padding: 10px 5px;
+    border: 1px solid black;
+    background: #43a144; }
+  section .news-sub {
+    width: 100%;
+    padding: 10px 5px;
+    border: 1px solid black;
+    background: #43a144; }
+  section .news-teacher {
+    width: 100%;
+    padding: 10px 5px;
+    border: 1px solid black;
+    background: #43a144; }
+
+footer {
+  background: #ecca53;
+  height: 100px;
+  width: 100%; }
