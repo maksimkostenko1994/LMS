@@ -6341,19 +6341,27 @@ section {
     height: 400px; }
   section .news-mark {
     width: 100%;
-    padding: 10px 5px;
+    padding-top: 10px;
     border: 1px solid black;
-    background: #43a144; }
+    background: #43a144;
+    margin-top: 20px; }
+    section .news-mark ul {
+      margin-left: -35px; }
   section .news-sub {
     width: 100%;
-    padding: 10px 5px;
+    padding-top: 10px;
     border: 1px solid black;
     background: #43a144; }
+    section .news-sub ul {
+      margin-left: -35px; }
   section .news-teacher {
     width: 100%;
     padding: 10px 5px;
     border: 1px solid black;
-    background: #43a144; }
+    background: #43a144;
+    margin-top: 20px; }
+    section .news-teacher ul {
+      margin-left: -35px; }
 
 footer {
   background: #ecca53;
