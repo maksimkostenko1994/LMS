@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "9e573ab725a4fb9e1b5d"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "3141236b6d017d425737"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -32966,7 +32966,7 @@ angular.module('app').config(['$routeProvider', '$locationProvider', function ($
 /* 11 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"login\">\r\n    <div class=\"wrap\">\r\n\r\n        <!-- SLIDER -->\r\n        <div class=\"content\">\r\n            <!-- LOGO -->\r\n            <div class=\"logo\">\r\n                <a href=\"#!/signin\"><img src=\"/img/logo.png\" alt=\"\"></a>\r\n            </div>\r\n            <!-- SLIDESHOW -->\r\n            <div id=\"slideshow\">\r\n                <div class=\"one\">\r\n                    <h2><span>EVENTS</span></h2>\r\n                    <p>Sign up to attend any of hundreds of events nationwide</p>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <!-- LOGIN FORM -->\r\n        <div class=\"user\">\r\n            <div class=\"form-wrap\">\r\n                <!-- TABS -->\r\n                <div class=\"tabs\">\r\n                    <h3 class=\"login-tab\"><a class=\"log-in active\" href=\"#!/signin\"><span>Автентифікація</span></a></h3>\r\n                </div>\r\n                <!-- TABS CONTENT -->\r\n                <div class=\"tabs-content\">\r\n                    <!-- TABS CONTENT LOGIN -->\r\n                    <div id=\"login-tab-content\" class=\"active\">\r\n                        <form class=\"login-form\" action=\"\" method=\"post\">\r\n                            <input type=\"text\" class=\"input\" placeholder=\"Емейл\" required autofocus ng-model=\"item.email\">\r\n                            <input type=\"password\" class=\"input\" placeholder=\"Пароль\" required ng-model=\"item.password\">\r\n                            <input type=\"checkbox\" class=\"checkbox\" checked id=\"remember_me\">\r\n                            <label for=\"remember_me\">Запам'ятати мене</label>\r\n                            <button type=\"button\" ng-click=\"login()\" class=\"button\">Увійти</button>\r\n                        </form>\r\n                        <div class=\"help-action\">\r\n                            <p><i class=\"fa fa-arrow-left\" aria-hidden=\"true\"></i><a class=\"forgot\" href=\"#\">Забули пароль?</a></p>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>";
+module.exports = "<div class=\"login\">\r\n    <div class=\"wrap\">\r\n\r\n        <!-- SLIDER -->\r\n        <div class=\"content\">\r\n            <!-- LOGO -->\r\n            <div class=\"logo\">\r\n                <a href=\"#!/signin\"><img src=\"/dist/img/logo.png\" alt=\"\"></a>\r\n            </div>\r\n            <!-- SLIDESHOW -->\r\n            <div id=\"slideshow\">\r\n                <div class=\"one\">\r\n                    <h2><span>EVENTS</span></h2>\r\n                    <p>Sign up to attend any of hundreds of events nationwide</p>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <!-- LOGIN FORM -->\r\n        <div class=\"user\">\r\n            <div class=\"form-wrap\">\r\n                <!-- TABS -->\r\n                <div class=\"tabs\">\r\n                    <h3 class=\"login-tab\"><a class=\"log-in active\" href=\"#!/signin\"><span>Автентифікація</span></a></h3>\r\n                </div>\r\n                <!-- TABS CONTENT -->\r\n                <div class=\"tabs-content\">\r\n                    <!-- TABS CONTENT LOGIN -->\r\n                    <div id=\"login-tab-content\" class=\"active\">\r\n                        <form class=\"login-form\" action=\"\" method=\"post\">\r\n                            <input type=\"text\" class=\"input\" placeholder=\"Емейл\" required autofocus ng-model=\"item.email\">\r\n                            <input type=\"password\" class=\"input\" placeholder=\"Пароль\" required ng-model=\"item.password\">\r\n                            <input type=\"checkbox\" class=\"checkbox\" checked id=\"remember_me\">\r\n                            <label for=\"remember_me\">Запам'ятати мене</label>\r\n                            <button type=\"button\" ng-click=\"login()\" class=\"button\">Увійти</button>\r\n                        </form>\r\n                        <div class=\"help-action\">\r\n                            <p><i class=\"fa fa-arrow-left\" aria-hidden=\"true\"></i><a class=\"forgot\" href=\"#\">Забули пароль?</a></p>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>";
 
 /***/ }),
 /* 12 */
@@ -32981,16 +32981,11 @@ module.exports = "<div>{{users.email}} + {{users.password}}</div>";
 "use strict";
 
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
 angular.module('app').controller('AuthController', ['$scope', '$http', '$window', function ($scope, $http, $window) {
   $scope.item = { email: '', password: '' };
 
   $scope.login = function () {
-    console.log('Email ' + $scope.item.email);
     $http.post('http://192.168.0.93:8080/informatics/user', $scope.item).then(function (response) {
-      console.log('Typeof ' + _typeof($scope.item.email));
-      console.log('Data ' + response.data.email);
       if ($scope.item.email === response.data.email && $scope.item.password === response.data.password) {
         $window.location.href = '#!/user';
       }
@@ -33007,7 +33002,6 @@ angular.module('app').controller('AuthController', ['$scope', '$http', '$window'
 
 angular.module('app').controller('UserController', ['$scope', '$http', function ($scope, $http) {
   $http.get("http://192.168.0.93:8080/informatics/user").then(function (response) {
-    console.log(response.data);
     $scope.users = response.data;
   });
 }]);
