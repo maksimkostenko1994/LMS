@@ -1,88 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
 <head>
     <meta charset="UTF-8">
     <title>МАМС</title>
 </head>
 <body>
-<header>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-2">
-                <a href="#"><img src="/dist/img/logo.png" height="90px" width="90px"></a>
-            </div>
-            <div class="col-md-6">
-                <div class="div-container">
-                    <div class="row">
-                        <div class="col-md-11">
-                            <input type="text">
-                        </div>
-                        <div class="col-md-1">
-                            <a href="#" class="search-button">
-                                <span class="glyphicon glyphicon-search"></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="data">
-                    <a href="#"><span class="glyphicon glyphicon-user"></span> Костенко Андрій</a>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="data">
-                    <a href="#"><span class="glyphicon glyphicon-log-out"></span> Вихід</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
-                <div class="services">Hello</div>
-                <div class="services">Hello</div>
-                <div class="services">Hello</div>
-                <div class="services">Hello</div>
-                <div class="services">Hello</div>
-                <div class="services">Hello</div>
-                <div class="services">Hello</div>
-                <div class="services">Hello</div>
-            </div>
-            <div class="col-md-6">
-                <div class="views">Hello</div>
-            </div>
-            <div class="col-md-3">
-                <div class="news-sub">
-                    <ul type="none">
-                        <li>Subject</li>
-                        <li>Subject</li>
-                        <li>Subject</li>
-                    </ul>
-                </div>
-                <div class="news-teacher">
-                    <ul type="none">
-                        <li>Teacher</li>
-                        <li>Teacher</li>
-                        <li>Teacher</li>
-                    </ul>
-                </div>
-                <div class="news-mark">
-                   <ul type="none">
-                       <li>Mark</li>
-                       <li>Mark</li>
-                       <li>Mark</li>
-                   </ul>
-                </div>
-            </div>
+            <!--<div ng-controller="AuthController" ng-include="'./authorization/template.html'">-->
+            <!--</div>-->
+            <ng-view></ng-view>
         </div>
     </div>
 </section>
 
-<footer>
-
-</footer>
 </body>
 </html>

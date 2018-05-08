@@ -78,7 +78,7 @@ header {
     transition-timing-function: ease-out;
 
     &:hover {
-      font-size: 22px;
+      font-size: 21px;
       margin-top: 34px;
     }
   }
@@ -96,7 +96,7 @@ header {
 section {
   background-color: #c2ebc2;
   width: 100%;
-  height: 500px;
+  height: 455px;
   text-align: center;
   padding-top: 30px;
 
@@ -155,4 +155,6 @@ footer {
   background: #ecca53;
   height: 100px;
   width: 100%;
+  //position: fixed;
+  bottom: 0;
 }

@@ -2,6 +2,7 @@ const webpack = require('webpack')
 const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   context: path.join(__dirname, 'front'),
@@ -12,11 +13,20 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.html$/,
+        loader: "html-loader"
+      },
+      {
         test: /\.js$/,
-        loader: 'babel-loader',
-        options: {
-          presets: 'env'
-        }
+        use:
+          [{
+            loader: 'babel-loader',
+            options: {
+              presets: ['env']
+            },
+          }, {
+            loader: "angularjs-template-loader"
+          }]
       },
       {
         test: /\.(css|scss)$/,
@@ -41,11 +51,19 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin('style.css'),
+    new webpack.ProvidePlugin({
+      $: "jquery/dist/jquery.min.js",
+      jQuery: "jquery/dist/jquery.min.js",
+      "window.jQuery": "jquery/dist/jquery.min.js"
+    }),
     new HtmlPlugin({
       template: './index.html',
       inject: 'body'
     }),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new CopyWebpackPlugin([
+      {from: 'modules/authorization/template.html', to: 'authorization'}
+    ])
   ],
 
   output: {

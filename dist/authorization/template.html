@@ -1,0 +1,44 @@
+<div class="login">
+    <div class="wrap">
+
+        <!-- SLIDER -->
+        <div class="content">
+            <!-- LOGO -->
+            <div class="logo">
+                <a href="#!/signin"><img src="/img/logo.png" alt=""></a>
+            </div>
+            <!-- SLIDESHOW -->
+            <div id="slideshow">
+                <div class="one">
+                    <h2><span>EVENTS</span></h2>
+                    <p>Sign up to attend any of hundreds of events nationwide</p>
+                </div>
+            </div>
+        </div>
+        <!-- LOGIN FORM -->
+        <div class="user">
+            <div class="form-wrap">
+                <!-- TABS -->
+                <div class="tabs">
+                    <h3 class="login-tab"><a class="log-in active" href="#!/signin"><span>Автентифікація</span></a></h3>
+                </div>
+                <!-- TABS CONTENT -->
+                <div class="tabs-content">
+                    <!-- TABS CONTENT LOGIN -->
+                    <div id="login-tab-content" class="active">
+                        <form class="login-form" action="" method="post">
+                            <input type="text" class="input" placeholder="Емейл" required autofocus ng-model="item.email">
+                            <input type="password" class="input" placeholder="Пароль" required ng-model="item.password">
+                            <input type="checkbox" class="checkbox" checked id="remember_me">
+                            <label for="remember_me">Запам'ятати мене</label>
+                            <button type="button" ng-click="login()" class="button">Увійти</button>
+                        </form>
+                        <div class="help-action">
+                            <p><i class="fa fa-arrow-left" aria-hidden="true"></i><a class="forgot" href="#">Забули пароль?</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
