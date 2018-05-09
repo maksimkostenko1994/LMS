@@ -1,7 +1,7 @@
 angular.module('app').config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider
-      .when('/signin', {templateUrl: './modules/authorization/template.html', controller: 'AuthController'})
-      .when('/user', {templateUrl: './modules/user/template.html', controller: 'UserController'});
+      .when('/user/addition', {templateUrl: './modules/user/actions/addition/template.html', controller: 'AddController'})
+      .when('/user/hello', {templateUrl: './modules/user/actions/hello/template.html'});
   $locationProvider.html5Mode({enable: true, requireBase: false}).hashPrefix('!');
-  window.location = '#!/signin';
+  // window.location = '#!/main';
 }])

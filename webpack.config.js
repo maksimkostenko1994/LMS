@@ -60,10 +60,10 @@ module.exports = {
       template: './index.html',
       inject: 'body'
     }),
-    new webpack.HotModuleReplacementPlugin(),
-    new CopyWebpackPlugin([
-      {from: 'modules/authorization/template.html', to: 'authorization'}
-    ])
+    new webpack.HotModuleReplacementPlugin()
+    // new CopyWebpackPlugin([
+    //   {from: 'modules/authorization/template.html', to: 'authorization'}
+    // ])
   ],
 
   output: {

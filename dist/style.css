@@ -6253,121 +6253,6 @@ button.close {
 
 .glyphicon-menu-up:before {
   content: "\E260"; }
-header {
-  min-height: 100px;
-  min-width: 100%;
-  background-color: #6ccc6d;
-  /*animation-name: rotate;
-    animation-duration: 1s;
-  }
-
-  @keyframes rotate {
-    0% {
-      transform: translateY(0)
-    }
-
-    100% {
-      transform: translateY(-5px)
-    }
-  }*/ }
-  header img {
-    margin-top: 5px;
-    margin-left: 55px; }
-  header .div-container {
-    min-width: 100%;
-    margin-top: 27px;
-    border-radius: 5px 5px 5px 5px;
-    border: 1px solid black;
-    background: white;
-    padding-top: 5px;
-    padding-bottom: 5px; }
-  header input {
-    min-width: 100%;
-    height: 30px;
-    border: none;
-    line-height: 30px;
-    outline: none;
-    padding-left: 10px;
-    margin-left: 10px;
-    transition: background-color 1s; }
-    header input:focus {
-      background-color: rgba(0, 0, 0, 0.1); }
-  header .search-button {
-    color: #dadada; }
-    header .search-button span {
-      padding-top: 7px;
-      padding-bottom: 7px;
-      font-size: 15px;
-      transition: font-size 0.2s, color 0.5s, padding-top 0.5s, padding-bottom 0.5s, padding-right 0.5s; }
-      header .search-button span:hover {
-        font-size: 20px;
-        color: black;
-        padding-top: 3px;
-        padding-bottom: 3px;
-        padding-right: 3px; }
-    header .search-button:hover {
-      color: black; }
-  header .data {
-    font-size: 20px;
-    margin-top: 35px;
-    text-align: center;
-    transition: font-size 0.1s, margin-top 0.1s;
-    transition-timing-function: ease-out; }
-    header .data:hover {
-      font-size: 21px;
-      margin-top: 34px; }
-  header a {
-    color: #f7f6f6; }
-  header a:hover {
-    text-decoration: none;
-    color: #ffffff; }
-
-section {
-  background-color: #c2ebc2;
-  width: 100%;
-  height: 455px;
-  text-align: center;
-  padding-top: 30px; }
-  section .services {
-    width: 100%;
-    padding: 10px 5px;
-    border: 1px solid black;
-    background: #43a144; }
-  section .views {
-    width: 100%;
-    padding: 10px 5px;
-    border: 1px solid black;
-    background: #83de84;
-    height: 400px; }
-  section .news-mark {
-    width: 100%;
-    padding-top: 10px;
-    border: 1px solid black;
-    background: #43a144;
-    margin-top: 20px; }
-    section .news-mark ul {
-      margin-left: -35px; }
-  section .news-sub {
-    width: 100%;
-    padding-top: 10px;
-    border: 1px solid black;
-    background: #43a144; }
-    section .news-sub ul {
-      margin-left: -35px; }
-  section .news-teacher {
-    width: 100%;
-    padding: 10px 5px;
-    border: 1px solid black;
-    background: #43a144;
-    margin-top: 20px; }
-    section .news-teacher ul {
-      margin-left: -35px; }
-
-footer {
-  background: #ecca53;
-  height: 100px;
-  width: 100%;
-  bottom: 0; }
 * {
   margin: 0;
   padding: 0; }
@@ -6394,11 +6279,13 @@ body {
   font: 16px/26px "Raleway", sans-serif;
   text-align: center;
   height: 100%;
+  overflow: hidden; }
+
+.back-fone {
   background: -moz-linear-gradient(270deg, #222e40 0%, #51c3b8 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #222e40), color-stop(100%, #51c3b8));
   background: -webkit-linear-gradient(270deg, #222e40 0%, #51c3b8 100%);
-  background: linear-gradient(180deg, #222e40 0%, #51c3b8 100%);
-  overflow: hidden; }
+  background: linear-gradient(180deg, #222e40 0%, #51c3b8 100%); }
 
 /* BUTTON */
 a.button {
@@ -7206,3 +7093,39 @@ input {
 .element.inactive {
   opacity: 0.0;
   transform: scale(1) translate3d(0, 0, 0); }
+.menu-bar {
+  width: 100%;
+  height: 60px;
+  background: #212020;
+  position: absolute;
+  z-index: 200; }
+
+.img-logo {
+  position: relative;
+  z-index: 300; }
+
+.nav-bar-menu {
+  z-index: 100;
+  margin-left: -15px;
+  min-height: 100vh;
+  background: #212020;
+  position: relative; }
+
+.btn-bot {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  background: black;
+  border: 0;
+  padding: 15px 0 15px 0; }
+  .btn-bot:hover {
+    background: #101010; }
+
+.nav-services-bar {
+  padding-top: 100px;
+  padding-left: 40px;
+  text-align: left;
+  color: #5A6374; }
+  .nav-services-bar span {
+    margin-right: 15px; }

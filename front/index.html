@@ -5,15 +5,92 @@
     <title>МАМС</title>
 </head>
 <body>
-<section>
-    <div class="container">
-        <div class="row">
-            <!--<div ng-controller="AuthController" ng-include="'./authorization/template.html'">-->
-            <!--</div>-->
-            <ng-view></ng-view>
+<div ng-show="!isLoggedIn" class="back-fone">
+    <div class="login">
+        <div class="wrap">
+
+            <!-- SLIDER -->
+            <div class="content">
+                <!-- LOGO -->
+                <div class="logo">
+                    <a href="#!/main"><img src="/dist/img/logo.png" alt=""></a>
+                </div>
+                <!-- SLIDESHOW -->
+                <div id="slideshow">
+                    <div class="one">
+                        <h2><span>EVENTS</span></h2>
+                        <p>Sign up to attend any of hundreds of events nationwide</p>
+                    </div>
+                </div>
+            </div>
+            <!-- LOGIN FORM -->
+            <div class="user">
+                <div class="form-wrap">
+                    <!-- TABS -->
+                    <div class="tabs">
+                        <h3 class="login-tab"><a class="log-in active" href="#!/main"><span>Автентифікація</span></a>
+                        </h3>
+                    </div>
+                    <!-- TABS CONTENT -->
+                    <div class="tabs-content">
+                        <!-- TABS CONTENT LOGIN -->
+                        <div id="login-tab-content" class="active">
+                            <form class="login-form" action="" method="post">
+                                <input type="text" class="input" placeholder="Емейл" required autofocus
+                                       ng-model="item.email">
+                                <input type="password" class="input" placeholder="Пароль" required
+                                       ng-model="item.password">
+                                <input type="checkbox" class="checkbox" checked id="remember_me">
+                                <label for="remember_me">Запам'ятати мене</label>
+                                <button ng-click="login()" class="button">Увійти</button>
+                            </form>
+                            <div class="help-action">
+                                <p><i class="fa fa-arrow-left" aria-hidden="true"></i><a class="forgot" href="#">Забули
+                                    пароль?</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</section>
-
+</div>
+<div ng-show="isLoggedIn" class="container-fluid">
+    <div ng-controller="UserController">
+        <div class="row">
+            <div class="menu-bar">
+                <div class="col-lg-2">
+                    <div class="img-logo"><img src="/dist/img/logo.png" height="75px" width="75px" alt="logo"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="nav-bar-menu">
+                    <div class="nav-services-bar">
+                        <ul type="none">
+                            <li>
+                                <a href="#!/user/hello"><span
+                                        class="glyphicon glyphicon-user"></span> Привітання
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!/user/addition"><span
+                                        class="glyphicon glyphicon-user"></span> Менеджмент користувачів
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <button class="btn-bot">
+                        <span class="glyphicon glyphicon-menu-left"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <ng-view></ng-view>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

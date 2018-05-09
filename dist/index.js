@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "3141236b6d017d425737"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "65a78afbf51872eea808"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -32947,7 +32947,32 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 "use strict";
 
 
-angular.module('app', ['ngRoute']);
+angular.module('app', ['ngRoute']).run(['$rootScope', '$http', '$window', function ($rootScope, $http, $window) {
+  $rootScope.item = { email: '', password: '' };
+
+  $rootScope.login = function () {
+    $http.post('http://192.168.0.93:8080/informatics/login', $rootScope.item).then(function (response) {
+      console.log('Data ' + response.data.email);
+      if ($rootScope.item.email === response.data.email && $rootScope.item.password === response.data.password) {
+        $window.location.href = '#!/user';
+      }
+    });
+  };
+  $rootScope.isLoggedIn = true;
+  // $rootScope.logout = logout;
+  /* $rootScope.$watch(
+     function () {
+       return store.get('token');
+     },
+     function () {
+       $rootScope.isLoggedIn = !!store.get('token');
+     }
+   );
+     function logout () {
+     store.remove('token');
+     $window.location.href = '/#/';
+   }*/
+}]);
 
 /***/ }),
 /* 10 */
@@ -32957,22 +32982,22 @@ angular.module('app', ['ngRoute']);
 
 
 angular.module('app').config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
-  $routeProvider.when('/signin', { template: __webpack_require__(11), controller: 'AuthController' }).when('/user', { template: __webpack_require__(12), controller: 'UserController' });
+  $routeProvider.when('/main/addition', { template: __webpack_require__(11), controller: 'AddController' }).when('/main/hello', { template: __webpack_require__(12) });
   $locationProvider.html5Mode({ enable: true, requireBase: false }).hashPrefix('!');
-  window.location = '#!/signin';
+  window.location = '#!/main';
 }]);
 
 /***/ }),
 /* 11 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"login\">\r\n    <div class=\"wrap\">\r\n\r\n        <!-- SLIDER -->\r\n        <div class=\"content\">\r\n            <!-- LOGO -->\r\n            <div class=\"logo\">\r\n                <a href=\"#!/signin\"><img src=\"/dist/img/logo.png\" alt=\"\"></a>\r\n            </div>\r\n            <!-- SLIDESHOW -->\r\n            <div id=\"slideshow\">\r\n                <div class=\"one\">\r\n                    <h2><span>EVENTS</span></h2>\r\n                    <p>Sign up to attend any of hundreds of events nationwide</p>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <!-- LOGIN FORM -->\r\n        <div class=\"user\">\r\n            <div class=\"form-wrap\">\r\n                <!-- TABS -->\r\n                <div class=\"tabs\">\r\n                    <h3 class=\"login-tab\"><a class=\"log-in active\" href=\"#!/signin\"><span>Автентифікація</span></a></h3>\r\n                </div>\r\n                <!-- TABS CONTENT -->\r\n                <div class=\"tabs-content\">\r\n                    <!-- TABS CONTENT LOGIN -->\r\n                    <div id=\"login-tab-content\" class=\"active\">\r\n                        <form class=\"login-form\" action=\"\" method=\"post\">\r\n                            <input type=\"text\" class=\"input\" placeholder=\"Емейл\" required autofocus ng-model=\"item.email\">\r\n                            <input type=\"password\" class=\"input\" placeholder=\"Пароль\" required ng-model=\"item.password\">\r\n                            <input type=\"checkbox\" class=\"checkbox\" checked id=\"remember_me\">\r\n                            <label for=\"remember_me\">Запам'ятати мене</label>\r\n                            <button type=\"button\" ng-click=\"login()\" class=\"button\">Увійти</button>\r\n                        </form>\r\n                        <div class=\"help-action\">\r\n                            <p><i class=\"fa fa-arrow-left\" aria-hidden=\"true\"></i><a class=\"forgot\" href=\"#\">Забули пароль?</a></p>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>";
+module.exports = "<div>\r\n    <form>\r\n        <label for=\"name\"></label>\r\n        <input id=\"name\" type=\"text\">\r\n        <label for=\"surname\"></label>\r\n        <input id=\"surname\" type=\"text\">\r\n        <label for=\"pass\"></label>\r\n        <input id=\"pass\" type=\"text\">\r\n        <label for=\"ck\"></label>\r\n        <input id=\"ck\" type=\"text\">\r\n        <label for=\"mk\"></label>\r\n        <input id=\"mk\" type=\"text\">\r\n        <label for=\"df\"></label>\r\n        <input id=\"df\" type=\"text\">\r\n    </form>\r\n</div>";
 
 /***/ }),
 /* 12 */
 /***/ (function(module, exports) {
 
-module.exports = "<div>{{users.email}} + {{users.password}}</div>";
+module.exports = "<h1>Hello USER!!!</h1>\r\n<h1>Hello USER!!!</h1>\r\n<h1>Hello USER!!!</h1>\r\n<h1>Hello USER!!!</h1>\r\n<h1>Hello USER!!!</h1>\r\n<h1>Hello USER!!!</h1>\r\n<h1>Hello USER!!!</h1>\r\n<h1>Hello USER!!!</h1>\r\n<h1>Hello USER!!!</h1>\r\n<h1>Hello USER!!!</h1>\r\n<h1>Hello USER!!!</h1>\r\n<h1>Hello USER!!!</h1>\r\n<h1>Hello USER!!!</h1>";
 
 /***/ }),
 /* 13 */
@@ -32981,16 +33006,11 @@ module.exports = "<div>{{users.email}} + {{users.password}}</div>";
 "use strict";
 
 
-angular.module('app').controller('AuthController', ['$scope', '$http', '$window', function ($scope, $http, $window) {
-  $scope.item = { email: '', password: '' };
-
-  $scope.login = function () {
-    $http.post('http://192.168.0.93:8080/informatics/user', $scope.item).then(function (response) {
-      if ($scope.item.email === response.data.email && $scope.item.password === response.data.password) {
-        $window.location.href = '#!/user';
-      }
-    });
-  };
+angular.module('app').controller('UserController', ['$scope', '$http', function ($scope, $http) {
+  $scope.name = '';
+  $http.get('http://192.168.0.93:8080/informatics/user').then(function (response) {
+    $scope.users = response.data;
+  });
 }]);
 
 /***/ }),
@@ -33000,11 +33020,7 @@ angular.module('app').controller('AuthController', ['$scope', '$http', '$window'
 "use strict";
 
 
-angular.module('app').controller('UserController', ['$scope', '$http', function ($scope, $http) {
-  $http.get("http://192.168.0.93:8080/informatics/user").then(function (response) {
-    $scope.users = response.data;
-  });
-}]);
+angular.module('app').controller('AddController', ['$scope', function ($scope) {}]);
 
 /***/ }),
 /* 15 */
