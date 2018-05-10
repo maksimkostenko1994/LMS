@@ -1,16 +1,25 @@
 <div style="margin-top: 100px;">
     <form>
-        <label for="name"></label>
-        <input id="name" type="text">
-        <label for="surname"></label>
-        <input id="surname" type="text">
-        <label for="pass"></label>
-        <input id="pass" type="text">
-        <label for="ck"></label>
-        <input id="ck" type="text">
-        <label for="mk"></label>
-        <input id="mk" type="text">
-        <label for="df"></label>
-        <input id="df" type="text">
+        <div>
+            <label for="name">Им'я </label>
+            <input id="name" type="text" placeholder="Введіть им'я..." required ng-model="items.firstName">
+        </div>
+        <div>
+            <label for="surname">Прізвище </label>
+            <input id="surname" type="text" placeholder="Введіть прізвище..." required ng-model="items.lastName">
+        </div>
+        <div>
+            <label for="email">Email </label>
+            <input id="email" type="text" placeholder="Введіть email..." required ng-model="items.email">
+        </div>
+        <div>
+            <label for="rolels"></label>
+            <select name="roleles" id="rolels" ng-model="items.role">
+                <option ng-repeat="role in roles" value="{{role.id}}">{{role.name}}</option>
+            </select>
+        </div>
+        <div>
+            <button ng-click="addUser()">Додати</button>
+        </div>
     </form>
 </div>

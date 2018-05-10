@@ -1,3 +1,13 @@
-angular.module('app').controller('AddController', ['$scope', function ($scope) {
-  
-}]);
+angular.module('app').controller('AddController', ['$scope', '$http', function ($scope, $http) {
+  $scope.items = {firstName: '', lastName: '', email: '', role: ''};
+
+  $http.get('http://192.168.0.93:8080/informatics/roles').then(function (response) {
+    return $scope.roles = response.data;
+  })
+
+  $scope.addUser = function() {
+    $http.post('http://192.168.0.93:8080/informatics/createUser', $scope.items).then(function (res) {
+        console.log(res);
+    });
+  }
+}])

@@ -7116,16 +7116,34 @@ input {
   bottom: 0;
   width: 100%;
   left: 0;
-  background: black;
+  background: linear-gradient(black, #101010);
   border: 0;
   padding: 15px 0 15px 0; }
   .btn-bot:hover {
-    background: #101010; }
+    background: linear-gradient(#101010, black); }
 
 .nav-services-bar {
   padding-top: 100px;
   padding-left: 40px;
   text-align: left;
   color: #5A6374; }
-  .nav-services-bar span {
-    margin-right: 15px; }
+  .nav-services-bar li {
+    text-align: left;
+    height: 12vh;
+    line-height: 12vh; }
+    .nav-services-bar li a {
+      text-decoration: none;
+      display: inline-block;
+      vertical-align: middle; }
+      .nav-services-bar li a div {
+        width: 255px;
+        height: 30px;
+        line-height: 30px;
+        padding-left: 10px;
+        transition: 1s ease-out; }
+        .nav-services-bar li a div:hover {
+          background: rgba(0, 0, 0, 0.4);
+          color: white;
+          transition: 1s ease-out; }
+        .nav-services-bar li a div span {
+          margin-right: 25px; }

@@ -15,7 +15,7 @@
   z-index: 100;
   margin-left: -15px;
   min-height: 100vh;
-  background: rgb(33, 32, 32);;
+  background: rgb(33, 32, 32);
   position: relative;
 }
 
@@ -24,12 +24,12 @@
   bottom: 0;
   width: 100%;
   left: 0;
-  background: black;
+  background: linear-gradient(black, rgb(16, 16, 16));
   border: 0;
   padding: 15px 0 15px 0;
 
   &:hover {
-    background: rgb(16, 16, 16);
+    background: linear-gradient(rgb(16, 16, 16), black);
   }
 }
 
@@ -38,8 +38,32 @@
   padding-left: 40px;
   text-align: left;
   color: #5A6374;
+  li {
+    text-align: left;
+    height: 12vh;
+    line-height: 12vh;
 
-  span {
-    margin-right: 15px;
+
+    a {
+      text-decoration: none;
+      display: inline-block;
+      vertical-align: middle;
+      div {
+        width: 255px;
+        height: 30px;
+        line-height: 30px;
+        padding-left: 10px;
+        transition: 1s ease-out;
+        &:hover {
+          background: rgba(0, 0, 0, 0.4);
+          color: white;
+          transition: 1s ease-out;
+        }
+
+        span {
+          margin-right: 25px;
+        }
+      }
+    }
   }
 }
