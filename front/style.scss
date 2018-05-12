@@ -99,8 +99,8 @@ a.button:hover {
   z-index: 2;
   top: 0;
   left: 0;
-  width: 40px;
-  height: 40px;
+  width: 70px;
+  height: 70px;
   background: #4FC1B7;
 }
 .logo img {
@@ -110,7 +110,7 @@ a.button:hover {
   right: 0;
   bottom: 0;
   left: 0;
-  width: 30px;
+  width: 70px;
 }
 .logo a {
   width: 100%;
@@ -752,13 +752,14 @@ input {
 
   /* SLIDESHOW */
   #slideshow h2 {
-    margin: 4.5em 0 1em;
+    margin: 3em 0 1em;
     font-size: 2em;
   }
   #slideshow h2 span {
     padding: 5px 0;
     border: solid #B6EDE3;
     border-width: 1px 0;
+    line-height: 80px;
   }
   #slideshow p {
     display: block;

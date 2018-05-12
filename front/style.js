@@ -11,9 +11,9 @@ $(function() {
 });
 
 // SLIDESHOW
-$(function() {
-  $('#slideshow > div:gt(0)').hide();
-});
+// $(function() {
+//   $('#slideshow > div:gt(0)').hide();
+// });
 
 // CUSTOM JQUERY FUNCTION FOR SWAPPING CLASSES
 (function($) {

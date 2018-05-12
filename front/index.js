@@ -15,6 +15,7 @@ import './style.scss'
 import './modules/user/style.scss'
 
 import './style'
+//import './menu'
 
 import '../pictures/exit.png'
 import '../pictures/IntegrationService.jpg'

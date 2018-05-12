@@ -61,9 +61,6 @@ module.exports = {
       inject: 'body'
     }),
     new webpack.HotModuleReplacementPlugin()
-    // new CopyWebpackPlugin([
-    //   {from: 'modules/authorization/template.html', to: 'authorization'}
-    // ])
   ],
 
   output: {

@@ -6347,8 +6347,8 @@ a.button:hover {
   z-index: 2;
   top: 0;
   left: 0;
-  width: 40px;
-  height: 40px;
+  width: 70px;
+  height: 70px;
   background: #4FC1B7; }
 
 .logo img {
@@ -6358,7 +6358,7 @@ a.button:hover {
   right: 0;
   bottom: 0;
   left: 0;
-  width: 30px; }
+  width: 70px; }
 
 .logo a {
   width: 100%;
@@ -6968,12 +6968,13 @@ input {
     transform: translate(-6px, 18px); }
   /* SLIDESHOW */
   #slideshow h2 {
-    margin: 4.5em 0 1em;
+    margin: 3em 0 1em;
     font-size: 2em; }
   #slideshow h2 span {
     padding: 5px 0;
     border: solid #B6EDE3;
-    border-width: 1px 0; }
+    border-width: 1px 0;
+    line-height: 80px; }
   #slideshow p {
     display: block; }
   #slideshow div {
@@ -7094,15 +7095,85 @@ input {
   opacity: 0.0;
   transform: scale(1) translate3d(0, 0, 0); }
 .menu-bar {
+  display: flex;
+  flex-direction: row;
   width: 100%;
   height: 60px;
   background: #212020;
   position: absolute;
   z-index: 200; }
+  .menu-bar .div1 {
+    flex: 0.5;
+    text-align: center;
+    line-height: 60px; }
+    .menu-bar .div1 a:hover {
+      text-decoration: none;
+      color: white; }
+  .menu-bar .div4 {
+    flex: 3; }
+  .menu-bar .div3 {
+    flex: 1;
+    text-align: center;
+    line-height: 60px; }
+    .menu-bar .div3 a:hover {
+      text-decoration: none;
+      color: white; }
+  .menu-bar .div2 {
+    display: flex;
+    flex-direction: row;
+    flex: 5;
+    padding: 0;
+    text-align: center;
+    line-height: 50px; }
+    .menu-bar .div2 .div-1 {
+      flex: 10;
+      border: 1px solid black;
+      border-right: none;
+      border-radius: 5px 0 0 5px;
+      min-width: 200px;
+      height: 35px;
+      float: right;
+      margin-top: 11px;
+      padding-left: 10px;
+      background: rgba(0, 0, 0, 0.4); }
+      .menu-bar .div2 .div-1 input {
+        border: none;
+        height: 25px;
+        margin-top: 4px;
+        float: right;
+        padding-left: 10px;
+        background: rgba(0, 0, 0, 0.4);
+        width: 100%;
+        transition: background 1s ease-out; }
+        .menu-bar .div2 .div-1 input:focus {
+          margin-left: 0;
+          background: white;
+          padding: 10px;
+          width: 100%; }
+        .menu-bar .div2 .div-1 input:active {
+          background: rgba(0, 0, 0, 0.1); }
+    .menu-bar .div2 .div-2 {
+      flex: 0.5;
+      background: rgba(0, 0, 0, 0.4);
+      transition: background 0.2s ease-out;
+      height: 35px;
+      margin-top: 11px;
+      line-height: 35px;
+      border: 1px solid black;
+      border-radius: 0 5px 5px 0;
+      border-left: none; }
+      .menu-bar .div2 .div-2:hover {
+        cursor: pointer; }
+        .menu-bar .div2 .div-2:hover a {
+          color: #666; }
+          .menu-bar .div2 .div-2:hover a:hover {
+            color: white; }
 
 .img-logo {
   position: relative;
-  z-index: 300; }
+  z-index: 300;
+  height: 90px;
+  width: 90px; }
 
 .nav-bar-menu {
   z-index: 100;

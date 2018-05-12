@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "9807db582cd0b0ebd16a"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "2d8d0ce5e56bc16bff57"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -34320,12 +34320,15 @@ angular.module('app', ['ngRoute', 'app.authentication']).config(['$httpProvider'
     });
   };
   $rootScope.isLoggedIn = true;
-  $rootScope.logout = logout;
-  $rootScope.$watch(function () {
-    return _store2.default.get('token');
-  }, function () {
-    $rootScope.isLoggedIn = !!_store2.default.get('token');
-  });
+  /*$rootScope.logout = logout
+  $rootScope.$watch(
+    function () {
+      return store.get('token')
+    },
+    function () {
+      $rootScope.isLoggedIn = !!store.get('token')
+    }
+  )*/
 
   function logout() {
     _store2.default.remove('token');
@@ -34445,9 +34448,9 @@ $(function () {
 });
 
 // SLIDESHOW
-$(function () {
-  $('#slideshow > div:gt(0)').hide();
-});
+// $(function() {
+//   $('#slideshow > div:gt(0)').hide();
+// });
 
 // CUSTOM JQUERY FUNCTION FOR SWAPPING CLASSES
 (function ($) {

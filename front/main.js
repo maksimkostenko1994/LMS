@@ -15,7 +15,7 @@ angular.module('app', ['ngRoute', 'app.authentication']).config(['$httpProvider'
     })
   }
   $rootScope.isLoggedIn = true
-  $rootScope.logout = logout
+  /*$rootScope.logout = logout
   $rootScope.$watch(
     function () {
       return store.get('token')
@@ -23,7 +23,7 @@ angular.module('app', ['ngRoute', 'app.authentication']).config(['$httpProvider'
     function () {
       $rootScope.isLoggedIn = !!store.get('token')
     }
-  )
+  )*/
 
   function logout () {
     store.remove('token')
