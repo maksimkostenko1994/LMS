@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "2d8d0ce5e56bc16bff57"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "7a1ee7fdeeff8ba96d84"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -3213,7 +3213,7 @@ __webpack_require__(28);
 
 __webpack_require__(29);
 
-__webpack_require__(30);
+__webpack_require__(31);
 
 __webpack_require__(32);
 
@@ -34307,28 +34307,22 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 angular.module('app', ['ngRoute', 'app.authentication']).config(['$httpProvider', function ($httpProvider) {
   $httpProvider.interceptors.push('authenticationInterceptor');
-}]).run(['$rootScope', '$http', '$window', function ($rootScope, $http, $window) {
+}]).run(['$rootScope', '$http', '$window', function ($rootScope, $http) {
   $rootScope.item = { email: '', password: '' };
 
   $rootScope.login = function () {
     $http.post('http://192.168.0.93:8080/informatics/login', $rootScope.item).then(function (response) {
       console.log('Data ' + response.data);
       _store2.default.set('token', response.data.token);
-      // if (($rootScope.item.email === response.data.email) && ($rootScope.item.password === response.data.password)) {
-      //   $window.location.href = '#!/user'
-      // }
     });
   };
-  $rootScope.isLoggedIn = true;
-  /*$rootScope.logout = logout
-  $rootScope.$watch(
-    function () {
-      return store.get('token')
-    },
-    function () {
-      $rootScope.isLoggedIn = !!store.get('token')
-    }
-  )*/
+  $rootScope.isLoggedIn = false;
+  $rootScope.logout = logout;
+  $rootScope.$watch(function () {
+    return _store2.default.get('token');
+  }, function () {
+    $rootScope.isLoggedIn = !!_store2.default.get('token');
+  });
 
   function logout() {
     _store2.default.remove('token');
@@ -34352,7 +34346,7 @@ angular.module('app').config(['$routeProvider', '$locationProvider', function ($
 /* 25 */
 /***/ (function(module, exports) {
 
-module.exports = "<div style=\"margin-top: 100px;\">\r\n    <form>\r\n        <div>\r\n            <label for=\"name\">Им'я </label>\r\n            <input id=\"name\" type=\"text\" placeholder=\"Введіть им'я...\" required ng-model=\"items.firstName\">\r\n        </div>\r\n        <div>\r\n            <label for=\"surname\">Прізвище </label>\r\n            <input id=\"surname\" type=\"text\" placeholder=\"Введіть прізвище...\" required ng-model=\"items.lastName\">\r\n        </div>\r\n        <div>\r\n            <label for=\"email\">Email </label>\r\n            <input id=\"email\" type=\"text\" placeholder=\"Введіть email...\" required ng-model=\"items.email\">\r\n        </div>\r\n        <div>\r\n            <label for=\"rolels\"></label>\r\n            <select name=\"roleles\" id=\"rolels\" ng-model=\"items.role\">\r\n                <option ng-repeat=\"role in roles\" value=\"{{role.id}}\">{{role.name}}</option>\r\n            </select>\r\n        </div>\r\n        <div>\r\n            <button ng-click=\"addUser()\">Додати</button>\r\n        </div>\r\n    </form>\r\n</div>";
+module.exports = "<div style=\"margin-top: 100px; display: none\">\r\n    <form>\r\n        <div>\r\n            <label for=\"name\">Им'я </label>\r\n            <input id=\"name\" type=\"text\" placeholder=\"Введіть им'я...\" required ng-model=\"items.firstName\">\r\n        </div>\r\n        <div>\r\n            <label for=\"surname\">Прізвище </label>\r\n            <input id=\"surname\" type=\"text\" placeholder=\"Введіть прізвище...\" required ng-model=\"items.lastName\">\r\n        </div>\r\n        <div>\r\n            <label for=\"email\">Email </label>\r\n            <input id=\"email\" type=\"text\" placeholder=\"Введіть email...\" required ng-model=\"items.email\">\r\n        </div>\r\n        <div>\r\n            <label for=\"rolels\"></label>\r\n            <select name=\"roleles\" id=\"rolels\" ng-model=\"items.role\">\r\n                <option ng-repeat=\"role in roles\" value=\"{{role.id}}\">{{role.name}}</option>\r\n            </select>\r\n        </div>\r\n        <div>\r\n            <button ng-click=\"addUser()\">Додати</button>\r\n        </div>\r\n    </form>\r\n</div>\r\n<div class=\"user-addition\">\r\n    <div class=\"user-search\">\r\n        <input type=\"text\" placeholder=\"Пошук...\">\r\n    </div>\r\n    <table class=\"user-table\">\r\n        <thead class=\"user-table-head\">\r\n        <tr>\r\n            <th>\r\n                <a ng-click=\"sortBy('firstName')\">Ім'я</a>\r\n                <span ng-show=\"propertyName === 'firstName'\" ng-class=\"{reverse: reverse}\"></span>\r\n            </th>\r\n            <th>\r\n                <a ng-click=\"sortBy('lastName')\">Прізвище</a>\r\n                <span ng-show=\"propertyName === 'lastName'\" ng-class=\"{reverse: reverse}\"></span>\r\n            </th>\r\n            <th>\r\n                <a ng-click=\"sortBy('email')\">Пошта</a>\r\n                <span ng-show=\"propertyName === 'email'\"></span>\r\n            </th>\r\n            <th>\r\n                <a ng-click=\"sortBy('role')\">Посада</a>\r\n                <span ng-show=\"propertyName === 'role'\"></span>\r\n            </th>\r\n            <th>\r\n                <a><span class=\"glyphicon glyphicon-plus\"></span></a>\r\n            </th>\r\n        </tr>\r\n        </thead>\r\n        <tbody class=\"user-table-body\">\r\n        <!--<tr ng-repeat=\"user in users | orderBy:propertyName:reverse\">-->\r\n        <!--<td>{{user.firstName}}Name</td>-->\r\n        <!--<td>{{user.lastName}}Surname</td>-->\r\n        <!--<td>{{user.email}}admin@mail.ua</td>-->\r\n        <!--<td>{{user.role.name}}admin</td>-->\r\n        <!--<td><button>Edit</button><button>Delete</button></td>-->\r\n        <!--</tr>-->\r\n        <!--<tr ng-repeat=\"user in users\">-->\r\n        <!--<td>{{user.firstName}}Name</td>-->\r\n        <!--<td>{{user.lastName}}Surname</td>-->\r\n        <!--<td>{{user.email}}admin@mail.ua</td>-->\r\n        <!--<td>{{user.role.name}}admin</td>-->\r\n        <!--<td><button>Edit</button><button>Delete</button></td>-->\r\n        <!--</tr>-->\r\n        <tr>\r\n            <td>Name</td>\r\n            <td>Surname</td>\r\n            <td>admin@mail.ua</td>\r\n            <td>admin</td>\r\n            <td>\r\n                <a>Edit</a><span class=\"glyphicon glyphicon-option-vertical\"></span><a>Delete</a>\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>Name</td>\r\n            <td>Surname</td>\r\n            <td>admin@mail.ua</td>\r\n            <td>admin</td>\r\n            <td>\r\n                <a><span class=\"glyphicon glyphicon-pencil\"></span></a>\r\n                <span class=\"glyphicon glyphicon-option-vertical\"></span>\r\n                <a><span class=\"glyphicon glyphicon-remove\"></span></a>\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>Name</td>\r\n            <td>Surname</td>\r\n            <td>admin@mail.ua</td>\r\n            <td>admin</td>\r\n            <td>\r\n                <a>Edit</a><span class=\"glyphicon glyphicon-option-vertical\"></span><a>Delete</a>\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>Name</td>\r\n            <td>Surname</td>\r\n            <td>admin@mail.ua</td>\r\n            <td>admin</td>\r\n            <td>\r\n                <a>Edit</a><span class=\"glyphicon glyphicon-option-vertical\"></span><a>Delete</a>\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>Name</td>\r\n            <td>Surname</td>\r\n            <td>admin@mail.ua</td>\r\n            <td>admin</td>\r\n            <td>\r\n                <a>Edit</a><span class=\"glyphicon glyphicon-option-vertical\"></span><a>Delete</a>\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>Name</td>\r\n            <td>Surname</td>\r\n            <td>admin@mail.ua</td>\r\n            <td>admin</td>\r\n            <td>\r\n                <a>Edit</a><span class=\"glyphicon glyphicon-option-vertical\"></span><a>Delete</a>\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>Name</td>\r\n            <td>Surname</td>\r\n            <td>admin@mail.ua</td>\r\n            <td>admin</td>\r\n            <td>\r\n                <a>Edit</a><span class=\"glyphicon glyphicon-option-vertical\"></span><a>Delete</a>\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>Name</td>\r\n            <td>Surname</td>\r\n            <td>admin@mail.ua</td>\r\n            <td>admin</td>\r\n            <td>\r\n                <a>Edit</a><span class=\"glyphicon glyphicon-option-vertical\"></span><a>Delete</a>\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>Name</td>\r\n            <td>Surname</td>\r\n            <td>admin@mail.ua</td>\r\n            <td>admin</td>\r\n            <td>\r\n                <a>Edit</a><span class=\"glyphicon glyphicon-option-vertical\"></span><a>Delete</a>\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>Name</td>\r\n            <td>Surname</td>\r\n            <td>admin@mail.ua</td>\r\n            <td>admin</td>\r\n            <td>\r\n                <a>Edit</a><span class=\"glyphicon glyphicon-option-vertical\"></span><a>Delete</a>\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>Name</td>\r\n            <td>Surname</td>\r\n            <td>admin@mail.ua</td>\r\n            <td>admin</td>\r\n            <td>\r\n                <a>Edit</a><span class=\"glyphicon glyphicon-option-vertical\"></span><a>Delete</a>\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>Name</td>\r\n            <td>Surname</td>\r\n            <td>admin@mail.ua</td>\r\n            <td>admin</td>\r\n            <td>\r\n                <a>Edit</a><span class=\"glyphicon glyphicon-option-vertical\"></span><a>Delete</a>\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>Name</td>\r\n            <td>Surname</td>\r\n            <td>admin@mail.ua</td>\r\n            <td>admin</td>\r\n            <td>\r\n                <a>Edit</a><span class=\"glyphicon glyphicon-option-vertical\"></span><a>Delete</a>\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>Name</td>\r\n            <td>Surname</td>\r\n            <td>admin@mail.ua</td>\r\n            <td>admin</td>\r\n            <td>\r\n                <a>Edit</a><span class=\"glyphicon glyphicon-option-vertical\"></span><a>Delete</a>\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>Name</td>\r\n            <td>Surname</td>\r\n            <td>admin@mail.ua</td>\r\n            <td>admin</td>\r\n            <td>\r\n                <a>Edit</a><span class=\"glyphicon glyphicon-option-vertical\"></span><a>Delete</a>\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>Name</td>\r\n            <td>Surname</td>\r\n            <td>admin@mail.ua</td>\r\n            <td>admin</td>\r\n            <td>\r\n                <a>Edit</a><span class=\"glyphicon glyphicon-option-vertical\"></span><a>Delete</a>\r\n            </td>\r\n        </tr>\r\n        </tbody>\r\n    </table>\r\n</div>";
 
 /***/ }),
 /* 26 */
@@ -34367,20 +34361,6 @@ module.exports = "<h1>Hello USER!!!</h1>\r\n<h1>Hello USER!!!</h1>\r\n<h1>Hello 
 "use strict";
 
 
-angular.module('app').controller('UserController', ['$scope', '$http', function ($scope, $http) {
-  $scope.name = '';
-  $http.get('http://192.168.0.93:8080/informatics/user').then(function (response) {
-    $scope.users = response.data;
-  });
-}]);
-
-/***/ }),
-/* 28 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
 angular.module('app').controller('AddController', ['$scope', '$http', function ($scope, $http) {
   $scope.items = { firstName: '', lastName: '', email: '', role: '' };
 
@@ -34388,27 +34368,45 @@ angular.module('app').controller('AddController', ['$scope', '$http', function (
     return $scope.roles = response.data;
   });
 
+  $http.get('http://192.168.0.93:8080/informatics/users').then(function (response) {
+    return $scope.users = response.data;
+  });
+
   $scope.addUser = function () {
     $http.post('http://192.168.0.93:8080/informatics/createUser', $scope.items).then(function (res) {
       console.log(res);
     });
   };
+
+  $scope.propertyName = 'age';
+  $scope.reverse = true;
+
+  $scope.sortBy = function (propertyName) {
+    $scope.reverse = $scope.propertyName === propertyName ? !$scope.reverse : false;
+    $scope.propertyName = propertyName;
+  };
 }]);
 
 /***/ }),
-/* 29 */
+/* 28 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 30 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(31);
+__webpack_require__(30);
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 /* 31 */

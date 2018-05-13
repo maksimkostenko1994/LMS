@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>МАМС</title>
+    <link rel="shortcut icon" href="/dist/img/logo.png" type="image/png">
 <link href="/dist/style.css" rel="stylesheet"></head>
 <body>
 <div ng-show="!isLoggedIn" class="back-fone">
@@ -56,77 +57,76 @@
     </div>
 </div>
 <div ng-show="isLoggedIn" class="container-fluid">
-    <div ng-controller="UserController">
-        <div class="row">
-            <div class="menu-bar">
-                <div class="div4"><img class="img-logo" src="/dist/img/logo.png"></div>
-                <div class="div2">
-                    <div class="div-1">
-                        <input type="text">
-                    </div>
-                    <div class="div-2">
-                        <a href="#"><span class="glyphicon glyphicon-search"></span></a>
-                    </div>
+    <div class="row">
+        <div class="menu-bar">
+            <div class="div4"><img class="img-logo" src="/dist/img/logo.png"></div>
+            <div class="div2">
+                <div class="div-1">
+                    <input type="text">
                 </div>
-                <div class="div3"><a href="#"><span class="glyphicon glyphicon-user"></span> Костенко Максим</a></div>
-                <div class="div1"><a href="#"><span class="glyphicon glyphicon-log-out"></span> Вихід</a></div>
+                <div class="div-2">
+                    <a href="#"><span class="glyphicon glyphicon-search"></span></a>
+                </div>
+            </div>
+            <div class="div3"><a href="#"><span class="glyphicon glyphicon-user"></span> Костенко Максим</a></div>
+            <div class="div1"><a href="#" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span>
+                Вихід</a></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3 col-md-3 col-lg-3">
+            <div class="nav-bar-menu">
+                <div class="nav-services-bar">
+                    <ul type="none">
+                        <li>
+                            <a href="#!/user/hello">
+                                <div><span class="glyphicon glyphicon-home"></span> Привітання
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#!/user/addition">
+                                <div><span class="glyphicon glyphicon-user"></span> Менеджмент користувачів
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#!/user/entrants">
+                                <div>
+                                    <span class="glyphicon glyphicon-education"></span> Абітурієнти
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#!/user/lecturers">
+                                <div>
+                                    <span class="glyphicon glyphicon-briefcase"></span> Викладачі
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#!/user/edplanes">
+                                <div>
+                                    <span class="glyphicon glyphicon-book"></span> Навчальні плани
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#!/user/addition">
+                                <div>
+                                    <span class="glyphicon glyphicon-list-alt"></span> Дисципліни
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <button class="btn-bot">
+                    <span class="glyphicon glyphicon-menu-left"></span>
+                </button>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-3 col-md-3 col-lg-3">
-                <div class="nav-bar-menu">
-                    <div class="nav-services-bar">
-                        <ul type="none">
-                            <li>
-                                <a href="#!/user/hello">
-                                    <div><span class="glyphicon glyphicon-home"></span> Привітання
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#!/user/addition">
-                                    <div><span class="glyphicon glyphicon-user"></span> Менеджмент користувачів
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#!/user/entrants">
-                                    <div>
-                                        <span class="glyphicon glyphicon-education"></span> Абітурієнти
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#!/user/lecturers">
-                                    <div>
-                                        <span class="glyphicon glyphicon-briefcase"></span> Викладачі
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#!/user/edplanes">
-                                    <div>
-                                        <span class="glyphicon glyphicon-book"></span> Навчальні плани
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#!/user/addition">
-                                    <div>
-                                        <span class="glyphicon glyphicon-list-alt"></span> Дисципліни
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <button class="btn-bot">
-                        <span class="glyphicon glyphicon-menu-left"></span>
-                    </button>
-                </div>
-            </div>
-            <div class="col-lg-9">
-                <ng-view></ng-view>
-            </div>
+        <div class="col-lg-9">
+            <ng-view></ng-view>
         </div>
     </div>
 </div>

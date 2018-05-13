@@ -1,4 +1,4 @@
-<div style="margin-top: 100px;">
+<div style="margin-top: 100px; display: none">
     <form>
         <div>
             <label for="name">Им'я </label>
@@ -22,4 +22,196 @@
             <button ng-click="addUser()">Додати</button>
         </div>
     </form>
+</div>
+<div class="user-addition">
+    <div class="user-search">
+        <input type="text" placeholder="Пошук...">
+    </div>
+    <table class="user-table">
+        <thead class="user-table-head">
+        <tr>
+            <th>
+                <a ng-click="sortBy('firstName')">Ім'я</a>
+                <span ng-show="propertyName === 'firstName'" ng-class="{reverse: reverse}"></span>
+            </th>
+            <th>
+                <a ng-click="sortBy('lastName')">Прізвище</a>
+                <span ng-show="propertyName === 'lastName'" ng-class="{reverse: reverse}"></span>
+            </th>
+            <th>
+                <a ng-click="sortBy('email')">Пошта</a>
+                <span ng-show="propertyName === 'email'"></span>
+            </th>
+            <th>
+                <a ng-click="sortBy('role')">Посада</a>
+                <span ng-show="propertyName === 'role'"></span>
+            </th>
+            <th>
+                <a><span class="glyphicon glyphicon-plus"><span></span></span></a>
+            </th>
+        </tr>
+        </thead>
+        <tbody class="user-table-body">
+        <!--<tr ng-repeat="user in users | orderBy:propertyName:reverse">-->
+        <!--<td>{{user.firstName}}Name</td>-->
+        <!--<td>{{user.lastName}}Surname</td>-->
+        <!--<td>{{user.email}}admin@mail.ua</td>-->
+        <!--<td>{{user.role.name}}admin</td>-->
+        <!--<td><button>Edit</button><button>Delete</button></td>-->
+        <!--</tr>-->
+        <!--<tr ng-repeat="user in users">-->
+        <!--<td>{{user.firstName}}Name</td>-->
+        <!--<td>{{user.lastName}}Surname</td>-->
+        <!--<td>{{user.email}}admin@mail.ua</td>-->
+        <!--<td>{{user.role.name}}admin</td>-->
+        <!--<td><button>Edit</button><button>Delete</button></td>-->
+        <!--</tr>-->
+        <tr>
+            <td>Name</td>
+            <td>Surname</td>
+            <td>admin@mail.ua</td>
+            <td>admin</td>
+            <td>
+                <a>Edit</a><span class="glyphicon glyphicon-option-vertical"></span><a>Delete</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>Surname</td>
+            <td>admin@mail.ua</td>
+            <td>admin</td>
+            <td>
+                <a><span class="glyphicon glyphicon-pencil"></span></a>
+                <span class="glyphicon glyphicon-option-vertical"></span>
+                <a><span class="glyphicon glyphicon-remove"></span></a>
+            </td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>Surname</td>
+            <td>admin@mail.ua</td>
+            <td>admin</td>
+            <td>
+                <a>Edit</a><span class="glyphicon glyphicon-option-vertical"></span><a>Delete</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>Surname</td>
+            <td>admin@mail.ua</td>
+            <td>admin</td>
+            <td>
+                <a>Edit</a><span class="glyphicon glyphicon-option-vertical"></span><a>Delete</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>Surname</td>
+            <td>admin@mail.ua</td>
+            <td>admin</td>
+            <td>
+                <a>Edit</a><span class="glyphicon glyphicon-option-vertical"></span><a>Delete</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>Surname</td>
+            <td>admin@mail.ua</td>
+            <td>admin</td>
+            <td>
+                <a>Edit</a><span class="glyphicon glyphicon-option-vertical"></span><a>Delete</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>Surname</td>
+            <td>admin@mail.ua</td>
+            <td>admin</td>
+            <td>
+                <a>Edit</a><span class="glyphicon glyphicon-option-vertical"></span><a>Delete</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>Surname</td>
+            <td>admin@mail.ua</td>
+            <td>admin</td>
+            <td>
+                <a>Edit</a><span class="glyphicon glyphicon-option-vertical"></span><a>Delete</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>Surname</td>
+            <td>admin@mail.ua</td>
+            <td>admin</td>
+            <td>
+                <a>Edit</a><span class="glyphicon glyphicon-option-vertical"></span><a>Delete</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>Surname</td>
+            <td>admin@mail.ua</td>
+            <td>admin</td>
+            <td>
+                <a>Edit</a><span class="glyphicon glyphicon-option-vertical"></span><a>Delete</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>Surname</td>
+            <td>admin@mail.ua</td>
+            <td>admin</td>
+            <td>
+                <a>Edit</a><span class="glyphicon glyphicon-option-vertical"></span><a>Delete</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>Surname</td>
+            <td>admin@mail.ua</td>
+            <td>admin</td>
+            <td>
+                <a>Edit</a><span class="glyphicon glyphicon-option-vertical"></span><a>Delete</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>Surname</td>
+            <td>admin@mail.ua</td>
+            <td>admin</td>
+            <td>
+                <a>Edit</a><span class="glyphicon glyphicon-option-vertical"></span><a>Delete</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>Surname</td>
+            <td>admin@mail.ua</td>
+            <td>admin</td>
+            <td>
+                <a>Edit</a><span class="glyphicon glyphicon-option-vertical"></span><a>Delete</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>Surname</td>
+            <td>admin@mail.ua</td>
+            <td>admin</td>
+            <td>
+                <a>Edit</a><span class="glyphicon glyphicon-option-vertical"></span><a>Delete</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>Surname</td>
+            <td>admin@mail.ua</td>
+            <td>admin</td>
+            <td>
+                <a>Edit</a><span class="glyphicon glyphicon-option-vertical"></span><a>Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </div>
