@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "4123e5b7c7f630860c7b"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "d93c4843960774fe5faf"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -34412,7 +34412,7 @@ module.exports = "<h1>Search</h1>";
 /* 32 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"profile\">\r\n    <form>\r\n        <div align=\"right\">\r\n            <label for=\"update_email\">Пошта: </label>\r\n            <input id=\"update_email\" type=\"email\" value=\"{{user.email}}\" placeholder=\"{{user.email}}\"\r\n                  required ng-model=\"items.email\"><span id=\"edit\"\r\n                                                class=\"glyphicon glyphicon-pencil\"></span>\r\n            <div ng-show=\"items.email===null\"><span class=\"alert-danger\">Поле не може бути пустим</span></div>\r\n        </div>\r\n        <div align=\"right\">\r\n            <label for=\"last_pass\">Старий пароль: </label>\r\n            <input id=\"last_pass\" type=\"password\" placeholder=\"Старий пароль\" required ng-model=\"lastPass\">\r\n            <span id=\"last_open\" class=\"glyphicon glyphicon-eye-open\"></span>\r\n            <span id=\"last_close\" class=\"glyphicon glyphicon-eye-close display\"></span>\r\n            <div ng-show=\"lastPass!==user.password\"><span class=\"alert-danger\">Пароль не вірний</span></div>\r\n            <div ng-show=\"lastPass===''\"><span class=\"alert-danger\">Поле не може бути пустим</span></div>\r\n        </div>\r\n        <div align=\"right\">\r\n            <label for=\"new_pass\">Новий пароль: </label>\r\n            <input id=\"new_pass\" type=\"password\" placeholder=\"Новий пароль\" required ng-model=\"newPass\">\r\n            <span id=\"new_open\" class=\"glyphicon glyphicon-eye-open\"></span>\r\n            <span id=\"new_close\" class=\"glyphicon glyphicon-eye-close display\"></span>\r\n            <div ng-show=\"newPass === ''\"><span class=\"alert-danger\">Поле не може бути пустим</span></div>\r\n            <div ng-show=\"newPass===lastPass\"><span class=\"alert-danger\">Новий пароль співпадає зі старим.<br> Ведіть будь ласка новий пароль.</span></div>\r\n        </div>\r\n        <div align=\"right\">\r\n            <label for=\"confirm_pass\">Підтвердити пароль: </label>\r\n            <input id=\"confirm_pass\" type=\"password\" placeholder=\"Підтвердити пароль\" required ng-model=\"items.password\">\r\n            <span id=\"confirm_open\" class=\"glyphicon glyphicon-eye-open\"></span>\r\n            <span id=\"confirm_close\" class=\"glyphicon glyphicon-eye-close display\"></span>\r\n            <div ng-show=\"items.password ===''\"><span class=\"alert-danger\">Поле не може бути пустим</span></div>\r\n            <div ng-show=\"items.password !==newPass\"><span class=\"alert-danger\">Пароль не співпадає</span></div>\r\n        </div>\r\n        <div align=\"center\">\r\n            <button ng-click=\"update()\">Редагувати</button>\r\n        </div>\r\n    </form>\r\n</div>";
+module.exports = "<div class=\"profile\">\r\n    <form>\r\n        <div align=\"right\">\r\n            <label for=\"update_email\">Пошта: </label>\r\n            <input id=\"update_email\" type=\"email\" value=\"{{user.email}}\" placeholder=\"Нова пошта\"\r\n                  required ng-model=\"items.email\"><span id=\"edit\"\r\n                                                class=\"glyphicon glyphicon-pencil\"></span>\r\n            <div ng-show=\"items.email===''\"><span class=\"alert-danger\">Поле не може бути пустим</span></div>\r\n        </div>\r\n        <div align=\"right\">\r\n            <label for=\"last_pass\">Старий пароль: </label>\r\n            <input id=\"last_pass\" type=\"password\" placeholder=\"Старий пароль\" required ng-model=\"lastPass\">\r\n            <span id=\"last_open\" class=\"glyphicon glyphicon-eye-open\"></span>\r\n            <span id=\"last_close\" class=\"glyphicon glyphicon-eye-close display\"></span>\r\n            <div ng-show=\"lastPass!==user.password\"><span class=\"alert-danger\">Пароль не вірний</span></div>\r\n            <div ng-show=\"lastPass===''\"><span class=\"alert-danger\">Поле не може бути пустим</span></div>\r\n        </div>\r\n        <div align=\"right\">\r\n            <label for=\"new_pass\">Новий пароль: </label>\r\n            <input id=\"new_pass\" type=\"password\" placeholder=\"Новий пароль\" required ng-model=\"newPass\">\r\n            <span id=\"new_open\" class=\"glyphicon glyphicon-eye-open\"></span>\r\n            <span id=\"new_close\" class=\"glyphicon glyphicon-eye-close display\"></span>\r\n            <div ng-show=\"newPass === ''\"><span class=\"alert-danger\">Поле не може бути пустим</span></div>\r\n            <div ng-show=\"newPass===lastPass\"><span class=\"alert-danger\">Новий пароль співпадає зі старим.<br> Ведіть будь ласка новий пароль.</span></div>\r\n        </div>\r\n        <div align=\"right\">\r\n            <label for=\"confirm_pass\">Підтвердити пароль: </label>\r\n            <input id=\"confirm_pass\" type=\"password\" placeholder=\"Підтвердити пароль\" required ng-model=\"items.password\">\r\n            <span id=\"confirm_open\" class=\"glyphicon glyphicon-eye-open\"></span>\r\n            <span id=\"confirm_close\" class=\"glyphicon glyphicon-eye-close display\"></span>\r\n            <div ng-show=\"items.password ===''\"><span class=\"alert-danger\">Поле не може бути пустим</span></div>\r\n            <div ng-show=\"items.password !==newPass\"><span class=\"alert-danger\">Пароль не співпадає</span></div>\r\n        </div>\r\n        <div align=\"center\">\r\n            <button ng-click=\"update()\">Редагувати</button>\r\n        </div>\r\n    </form>\r\n</div>";
 
 /***/ }),
 /* 33 */
@@ -34509,22 +34509,25 @@ angular.module('app').controller('SearchController', ['$scope', '$http', functio
 "use strict";
 
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
 angular.module('app').controller('ProfileController', ['$scope', '$http', function ($scope, $http) {
   $scope.items = { id: $scope.user.id, email: $scope.user.email, password: '' };
-
-  console.log(_typeof($scope.items.email));
 
   $scope.user = JSON.parse(localStorage.getItem('user'));
 
   $scope.update = function () {
-    if ($scope.items.email !== null && $scope.items.password !== null && $scope.items.email !== $scope.user.email && $scope.items.password !== $scope.user.password) {
-      $http.post('http://192.168.0.93:8080/informatics/updateUser', $scope.items).then(function (res) {
-        console.log(res);
-      });
-    }
+    $scope.user.email = $scope.items.email;
+    $scope.user.password = $scope.items.password;
+    localStorage.setItem('user', JSON.stringify($scope.user));
   };
+
+  // $scope.update = function () {
+  //   if ($scope.items.email !== null && $scope.items.password !== null &&
+  //     $scope.items.email !== $scope.user.email && $scope.items.password !==$scope.user.password) {
+  //     $http.post('http://192.168.0.93:8080/informatics/updateUser', $scope.items).then(function (res) {
+  //       console.log(res)
+  //     })
+  //   }
+  // }
 }]);
 
 /***/ }),

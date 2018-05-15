@@ -15,7 +15,7 @@ angular.module('app', ['ngRoute', 'app.authentication']).config(['$httpProvider'
   }
   $rootScope.user = JSON.parse(localStorage.getItem('user'))
 
-  $rootScope.isLoggedIn = false
+  $rootScope.isLoggedIn = true
   $rootScope.logout = logout
   $rootScope.$watch(
     function () {
