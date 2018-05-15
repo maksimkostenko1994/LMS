@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>МАМС</title>
     <link rel="shortcut icon" href="/dist/img/logo.png" type="image/png">
-<link href="/dist/style.css" rel="stylesheet"></head>
+<link href="/dist/style.css" rel="stylesheet"><script type="text/javascript" src="/dist/index.js"></script></head>
 <body>
 <div ng-show="!isLoggedIn" class="back-fone">
     <div class="login">
@@ -68,8 +68,9 @@
                     <a href="#"><span class="glyphicon glyphicon-search"></span></a>
                 </div>
             </div>
-            <div class="div3"><a href="#"><span class="glyphicon glyphicon-user"></span> Костенко Максим</a></div>
-            <div class="div1"><a href="#" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span>
+            <div class="div3"><a href="#!/user/profile"><span class="glyphicon glyphicon-user"></span>
+                {{user.firstName}} {{user.lastName}}</a></div>
+            <div class="div1"><a href="#!/user/hello" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span>
                 Вихід</a></div>
         </div>
     </div>
@@ -112,7 +113,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#!/user/addition">
+                            <a href="#!/user/discipline">
                                 <div>
                                     <span class="glyphicon glyphicon-list-alt"></span> Дисципліни
                                 </div>
@@ -126,9 +127,11 @@
             </div>
         </div>
         <div class="col-lg-9">
-            <ng-view></ng-view>
+            <div class="main-template">
+                <ng-view></ng-view>
+            </div>
         </div>
     </div>
 </div>
-<script type="text/javascript" src="/dist/index.js"></script></body>
+</body>
 </html>

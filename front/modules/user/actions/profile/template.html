@@ -1,10 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<div class="profile">
+    <form>
+        <div align="right">
+            <label for="update_email">Пошта: </label>
+            <input id="update_email" type="email" value="{{user.email}}" placeholder="Нова пошта"
+                  required ng-model="items.email"><span id="edit"
+                                                class="glyphicon glyphicon-pencil"></span>
+            <div ng-show="items.email===''"><span class="alert-danger">Поле не може бути пустим</span></div>
+        </div>
+        <div align="right">
+            <label for="last_pass">Старий пароль: </label>
+            <input id="last_pass" type="password" placeholder="Старий пароль" required ng-model="lastPass">
+            <span id="last_open" class="glyphicon glyphicon-eye-open"></span>
+            <span id="last_close" class="glyphicon glyphicon-eye-close display"></span>
+            <div ng-show="lastPass!==user.password"><span class="alert-danger">Пароль не вірний</span></div>
+            <div ng-show="lastPass===''"><span class="alert-danger">Поле не може бути пустим</span></div>
+        </div>
+        <div align="right">
+            <label for="new_pass">Новий пароль: </label>
+            <input id="new_pass" type="password" placeholder="Новий пароль" required ng-model="newPass">
+            <span id="new_open" class="glyphicon glyphicon-eye-open"></span>
+            <span id="new_close" class="glyphicon glyphicon-eye-close display"></span>
+            <div ng-show="newPass === ''"><span class="alert-danger">Поле не може бути пустим</span></div>
+            <div ng-show="newPass===lastPass"><span class="alert-danger">Новий пароль співпадає зі старим.<br> Ведіть будь ласка новий пароль.</span></div>
+        </div>
+        <div align="right">
+            <label for="confirm_pass">Підтвердити пароль: </label>
+            <input id="confirm_pass" type="password" placeholder="Підтвердити пароль" required ng-model="items.password">
+            <span id="confirm_open" class="glyphicon glyphicon-eye-open"></span>
+            <span id="confirm_close" class="glyphicon glyphicon-eye-close display"></span>
+            <div ng-show="items.password ===''"><span class="alert-danger">Поле не може бути пустим</span></div>
+            <div ng-show="items.password !==newPass"><span class="alert-danger">Пароль не співпадає</span></div>
+        </div>
+        <div align="center">
+            <button ng-click="update()">Редагувати</button>
+        </div>
+    </form>
+</div>

@@ -7094,6 +7094,11 @@ input {
 .element.inactive {
   opacity: 0.0;
   transform: scale(1) translate3d(0, 0, 0); }
+
+.main-template {
+  margin-top: 60px;
+  margin-left: -30px;
+  margin-right: -15px; }
 .menu-bar {
   display: flex;
   flex-direction: row;
@@ -7219,6 +7224,38 @@ input {
           transition: 1s ease-out; }
         .nav-services-bar li a div span {
           margin-right: 25px; }
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 400;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4); }
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; }
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold; }
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer; }
+
 .user-addition {
   margin-top: 100px; }
   .user-addition .user-search {
@@ -7262,6 +7299,8 @@ input {
             cursor: pointer; }
     .user-addition .user-table .user-table-body {
       color: black; }
+      .user-addition .user-table .user-table-body tr td span {
+        align-items: center; }
       .user-addition .user-table .user-table-body tr:nth-child(2n+1) {
         background: #A5B9FF; }
       .user-addition .user-table .user-table-body tr:nth-child(2n) {
@@ -7279,3 +7318,30 @@ input {
         color: black; }
       .user-addition .user-table .user-table-body .vertical-line {
         border-right: 1px solid black; }
+.profile {
+  background: radial-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1), white);
+  width: 100%; }
+  .profile form {
+    height: 100vh;
+    margin: auto;
+    width: 700px;
+    padding-top: 30vh; }
+    .profile form input {
+      border: none;
+      background: transparent;
+      margin-bottom: 25px;
+      width: 400px;
+      padding-left: 10px; }
+      .profile form input:focus {
+        background: #fff; }
+    .profile form span {
+      margin-left: 10px; }
+      .profile form span:hover {
+        color: black;
+        cursor: pointer; }
+    .profile form #edit {
+      opacity: 0; }
+      .profile form #edit:hover {
+        cursor: auto; }
+    .profile form .display {
+      display: none; }

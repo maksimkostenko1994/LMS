@@ -2,7 +2,6 @@ const webpack = require('webpack')
 const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlPlugin = require('html-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   context: path.join(__dirname, 'front'),
@@ -58,7 +57,7 @@ module.exports = {
     }),
     new HtmlPlugin({
       template: './index.html',
-      inject: 'body'
+      inject: 'head'
     }),
     new webpack.HotModuleReplacementPlugin()
   ],

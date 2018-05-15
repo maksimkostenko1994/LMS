@@ -1,21 +1,52 @@
-<div style="margin-top: 100px; display: none">
-    <form>
+<div class="modal" id="modal">
+    <span class="close">&times;</span>
+    <form class="modal-content">
         <div>
             <label for="name">Им'я </label>
             <input id="name" type="text" placeholder="Введіть им'я..." required ng-model="items.firstName">
+            <div ng-if="items.firstName === ''"><span class="alert-danger">Заповніть будь ласка поле!</span></div>
         </div>
         <div>
             <label for="surname">Прізвище </label>
             <input id="surname" type="text" placeholder="Введіть прізвище..." required ng-model="items.lastName">
+            <div ng-if="items.lastName === ''"><span class="alert-danger">Заповніть будь ласка поле!</span></div>
         </div>
         <div>
             <label for="email">Email </label>
-            <input id="email" type="text" placeholder="Введіть email..." required ng-model="items.email">
+            <input id="email" type="email" placeholder="Введіть email..." required ng-model="items.email">
+            <div ng-repeat="user in users"><span ng-if="items.email === user.email" class="alert-danger">Така пошта вже існує</span></div>
+            <div ng-if="items.email === ''"><span class="alert-danger">Заповніть будь ласка поле!</span></div>
         </div>
         <div>
             <label for="rolels"></label>
             <select name="roleles" id="rolels" ng-model="items.role">
                 <option ng-repeat="role in roles" value="{{role.id}}">{{role.name}}</option>
+            </select>
+            <div ng-if="items.role === ''"><span class="alert-danger">Заповніть будь ласка поле!</span></div>
+        </div>
+        <div>
+            <button ng-click="addUser()">Додати</button>
+        </div>
+    </form>
+</div>
+<div class="modal" id="updateModal">
+    <span class="close">&times;</span>
+    <form class="modal-content">
+        <div>
+            <label>Им'я </label>
+            <input type="text" placeholder="{{user.firstName}}" required ng-model="items.firstName">
+        </div>
+        <div>
+            <label>Прізвище </label>
+            <input type="text" placeholder="{{user.lastName}}" required ng-model="items.lastName">
+        </div>
+        <div>
+            <label>Email </label>
+            <input type="text" placeholder="{{user.email}}" required ng-model="items.email">
+        </div>
+        <div>
+            <select ng-model="items.role">
+                <option ng-repeat="role in roles" value="{{role.id}}">{{user.role.name}}</option>
             </select>
         </div>
         <div>
@@ -25,191 +56,45 @@
 </div>
 <div class="user-addition">
     <div class="user-search">
-        <input type="text" placeholder="Пошук...">
+        <input type="text" ng-model="searchText" placeholder="Пошук...">
     </div>
     <table class="user-table">
         <thead class="user-table-head">
         <tr>
             <th>
                 <a ng-click="sortBy('firstName')">Ім'я</a>
-                <span ng-show="propertyName === 'firstName'" ng-class="{reverse: reverse}"></span>
             </th>
             <th>
                 <a ng-click="sortBy('lastName')">Прізвище</a>
-                <span ng-show="propertyName === 'lastName'" ng-class="{reverse: reverse}"></span>
             </th>
             <th>
                 <a ng-click="sortBy('email')">Пошта</a>
-                <span ng-show="propertyName === 'email'"></span>
             </th>
             <th>
                 <a ng-click="sortBy('role')">Посада</a>
-                <span ng-show="propertyName === 'role'"></span>
             </th>
             <th>
-                <a><span class="glyphicon glyphicon-plus"><span></span></span></a>
+                <a id="modalBtn"><span class="glyphicon glyphicon-plus"></span></a>
             </th>
         </tr>
         </thead>
         <tbody class="user-table-body">
-        <!--<tr ng-repeat="user in users | orderBy:propertyName:reverse">-->
-        <!--<td>{{user.firstName}}Name</td>-->
-        <!--<td>{{user.lastName}}Surname</td>-->
-        <!--<td>{{user.email}}admin@mail.ua</td>-->
-        <!--<td>{{user.role.name}}admin</td>-->
-        <!--<td><button>Edit</button><button>Delete</button></td>-->
-        <!--</tr>-->
-        <!--<tr ng-repeat="user in users">-->
-        <!--<td>{{user.firstName}}Name</td>-->
-        <!--<td>{{user.lastName}}Surname</td>-->
-        <!--<td>{{user.email}}admin@mail.ua</td>-->
-        <!--<td>{{user.role.name}}admin</td>-->
-        <!--<td><button>Edit</button><button>Delete</button></td>-->
-        <!--</tr>-->
-        <tr>
-            <td>Name</td>
-            <td>Surname</td>
-            <td>admin@mail.ua</td>
-            <td>admin</td>
+        <tr ng-repeat="user in users | orderBy:propertyName:reverse | filter:searchText">
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.role.name}}</td>
             <td>
-                <a>Edit</a><span class="glyphicon glyphicon-option-vertical"></span><a>Delete</a>
-            </td>
-        </tr>
-        <tr>
-            <td>Name</td>
-            <td>Surname</td>
-            <td>admin@mail.ua</td>
-            <td>admin</td>
-            <td>
-                <a><span class="glyphicon glyphicon-pencil"></span></a>
+                <a>
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </a>
                 <span class="glyphicon glyphicon-option-vertical"></span>
-                <a><span class="glyphicon glyphicon-remove"></span></a>
-            </td>
-        </tr>
-        <tr>
-            <td>Name</td>
-            <td>Surname</td>
-            <td>admin@mail.ua</td>
-            <td>admin</td>
-            <td>
-                <a>Edit</a><span class="glyphicon glyphicon-option-vertical"></span><a>Delete</a>
-            </td>
-        </tr>
-        <tr>
-            <td>Name</td>
-            <td>Surname</td>
-            <td>admin@mail.ua</td>
-            <td>admin</td>
-            <td>
-                <a>Edit</a><span class="glyphicon glyphicon-option-vertical"></span><a>Delete</a>
-            </td>
-        </tr>
-        <tr>
-            <td>Name</td>
-            <td>Surname</td>
-            <td>admin@mail.ua</td>
-            <td>admin</td>
-            <td>
-                <a>Edit</a><span class="glyphicon glyphicon-option-vertical"></span><a>Delete</a>
-            </td>
-        </tr>
-        <tr>
-            <td>Name</td>
-            <td>Surname</td>
-            <td>admin@mail.ua</td>
-            <td>admin</td>
-            <td>
-                <a>Edit</a><span class="glyphicon glyphicon-option-vertical"></span><a>Delete</a>
-            </td>
-        </tr>
-        <tr>
-            <td>Name</td>
-            <td>Surname</td>
-            <td>admin@mail.ua</td>
-            <td>admin</td>
-            <td>
-                <a>Edit</a><span class="glyphicon glyphicon-option-vertical"></span><a>Delete</a>
-            </td>
-        </tr>
-        <tr>
-            <td>Name</td>
-            <td>Surname</td>
-            <td>admin@mail.ua</td>
-            <td>admin</td>
-            <td>
-                <a>Edit</a><span class="glyphicon glyphicon-option-vertical"></span><a>Delete</a>
-            </td>
-        </tr>
-        <tr>
-            <td>Name</td>
-            <td>Surname</td>
-            <td>admin@mail.ua</td>
-            <td>admin</td>
-            <td>
-                <a>Edit</a><span class="glyphicon glyphicon-option-vertical"></span><a>Delete</a>
-            </td>
-        </tr>
-        <tr>
-            <td>Name</td>
-            <td>Surname</td>
-            <td>admin@mail.ua</td>
-            <td>admin</td>
-            <td>
-                <a>Edit</a><span class="glyphicon glyphicon-option-vertical"></span><a>Delete</a>
-            </td>
-        </tr>
-        <tr>
-            <td>Name</td>
-            <td>Surname</td>
-            <td>admin@mail.ua</td>
-            <td>admin</td>
-            <td>
-                <a>Edit</a><span class="glyphicon glyphicon-option-vertical"></span><a>Delete</a>
-            </td>
-        </tr>
-        <tr>
-            <td>Name</td>
-            <td>Surname</td>
-            <td>admin@mail.ua</td>
-            <td>admin</td>
-            <td>
-                <a>Edit</a><span class="glyphicon glyphicon-option-vertical"></span><a>Delete</a>
-            </td>
-        </tr>
-        <tr>
-            <td>Name</td>
-            <td>Surname</td>
-            <td>admin@mail.ua</td>
-            <td>admin</td>
-            <td>
-                <a>Edit</a><span class="glyphicon glyphicon-option-vertical"></span><a>Delete</a>
-            </td>
-        </tr>
-        <tr>
-            <td>Name</td>
-            <td>Surname</td>
-            <td>admin@mail.ua</td>
-            <td>admin</td>
-            <td>
-                <a>Edit</a><span class="glyphicon glyphicon-option-vertical"></span><a>Delete</a>
-            </td>
-        </tr>
-        <tr>
-            <td>Name</td>
-            <td>Surname</td>
-            <td>admin@mail.ua</td>
-            <td>admin</td>
-            <td>
-                <a>Edit</a><span class="glyphicon glyphicon-option-vertical"></span><a>Delete</a>
-            </td>
-        </tr>
-        <tr>
-            <td>Name</td>
-            <td>Surname</td>
-            <td>admin@mail.ua</td>
-            <td>admin</td>
-            <td>
-                <a>Edit</a><span class="glyphicon glyphicon-option-vertical"></span><a>Delete</a>
+                <a ng-show="user.role.name!='Адміністратор'" ng-click="remove(user.id)">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </a>
+                <a ng-show="user.role.name==='Адміністратор'">
+                    <span>_</span>
+                </a>
             </td>
         </tr>
         </tbody>

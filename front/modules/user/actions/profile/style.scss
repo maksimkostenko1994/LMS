@@ -1,0 +1,43 @@
+.profile {
+  background: radial-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .1), white);
+  width: 100%;
+  form {
+    height: 100vh;
+    margin: auto;
+    width: 700px;
+    padding-top: 30vh;
+
+    input {
+      border: none;
+      background: rgba(0, 0, 0, 0);
+      margin-bottom: 25px;
+      width: 400px;
+      padding-left: 10px;
+      
+      &:focus {
+        background: #fff;
+      }
+    }
+
+    span {
+      margin-left: 10px;
+
+      &:hover {
+        color: black;
+        cursor: pointer;
+      }
+    }
+
+    #edit {
+      opacity: 0;
+      &:hover {
+        cursor: auto;
+      }
+    }
+
+    .display {
+      display: none;
+    }
+
+  }
+}
