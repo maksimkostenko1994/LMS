@@ -7,6 +7,8 @@ angular.module('app').config(['$routeProvider', '$locationProvider', function ($
       .when('/user/edplanes', {templateUrl: './modules/user/actions/edplanes/template.html', controller: 'EducationController'})
       .when('/user/discipline', {templateUrl: './modules/user/actions/discipline/template.html', controller: 'DisciplineController'})
       .when('/user/search', {templateUrl: './modules/user/actions/search/template.html', controller: 'SearchController'})
-      .when('/user/profile', {templateUrl: './modules/user/actions/profile/template.html', controller: 'ProfileController'});
+      .when('/user/profile', {templateUrl: './modules/user/actions/profile/template.html', controller: 'ProfileController'})
+      .when('/user/groups/:id', {templateUrl: './modules/user/actions/groups/template.html', controller: 'GroupController'})
+      .when('/user/groups/marks/:id', {templateUrl: './modules/user/actions/marks/template.html', controller: 'MarkController'});
   $locationProvider.html5Mode({enable: true, requireBase: false}).hashPrefix('!');
 }])

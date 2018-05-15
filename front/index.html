@@ -85,45 +85,45 @@
                                 </div>
                             </a>
                         </li>
-                        <li>
+                        <li ng-show="user.role.name ==='Адміністратор'">
                             <a href="#!/user/addition">
                                 <div><span class="glyphicon glyphicon-user"></span> Менеджмент користувачів
                                 </div>
                             </a>
                         </li>
-                        <li>
+                        <li ng-show="user.role.name ==='Секретар ПК'">
                             <a href="#!/user/entrants">
                                 <div>
                                     <span class="glyphicon glyphicon-education"></span> Абітурієнти
                                 </div>
                             </a>
                         </li>
-                        <li>
+                        <li ng-show="user.role.name ==='Методист НМР'">
                             <a href="#!/user/lecturers">
                                 <div>
                                     <span class="glyphicon glyphicon-briefcase"></span> Викладачі
                                 </div>
                             </a>
                         </li>
-                        <li>
+                        <li ng-show="user.role.name ==='Методист УНП' || user.role.name ==='Методист НМР'">
                             <a href="#!/user/edplanes">
                                 <div>
                                     <span class="glyphicon glyphicon-book"></span> Навчальні плани
                                 </div>
                             </a>
                         </li>
-                        <li>
+                        <li ng-show="user.role.name ==='Методист УНП'">
                             <a href="#!/user/discipline">
                                 <div>
-                                    <span class="glyphicon glyphicon-list-alt"></span> Дисципліни
+                                    <span class="glyphicon glyphicon-list-alt"></span> Робота зі студентами
                                 </div>
                             </a>
                         </li>
                     </ul>
                 </div>
-                <button class="btn-bot">
-                    <span class="glyphicon glyphicon-menu-left"></span>
-                </button>
+                <!--<button class="btn-bot">-->
+                    <!--<span class="glyphicon glyphicon-menu-left"></span>-->
+                <!--</button>-->
             </div>
         </div>
         <div class="col-lg-9">

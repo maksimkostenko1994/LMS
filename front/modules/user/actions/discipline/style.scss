@@ -1,0 +1,12 @@
+.courses {
+  overflow: auto;
+  height: 531px;
+  width: 100%;
+  margin-left: 10px;
+
+  td, th {
+    text-align: center;
+    border: 1px solid black;
+  }
+
+}

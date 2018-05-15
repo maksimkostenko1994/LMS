@@ -1,0 +1,17 @@
+<div class="marks">
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th ng-repeat="test in marks| unique:'title'">{{test.title}}</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr ng-repeat="title in marks| unique:'name'| orderBy:'name'">
+                <td>{{title.name}}</td>
+                <td ng-repeat="grade in marks" ng-if="title.name===grade.name">{{grade.grade}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

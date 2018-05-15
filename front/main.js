@@ -1,6 +1,6 @@
 import store from 'store'
 
-angular.module('app', ['ngRoute', 'app.authentication']).config(['$httpProvider', function ($httpProvider) {
+angular.module('app', ['ngRoute','angular.filter', 'app.authentication']).config(['$httpProvider', function ($httpProvider) {
   $httpProvider.interceptors.push('authenticationInterceptor')
 }]).run(['$rootScope', '$http', '$window', function ($rootScope, $http, $window) {
   $rootScope.item = {email: '', password: ''}
@@ -13,22 +13,26 @@ angular.module('app', ['ngRoute', 'app.authentication']).config(['$httpProvider'
     })
     $window.location.href = '#!/user/hello'
   }
+
   $rootScope.user = JSON.parse(localStorage.getItem('user'))
 
-  $rootScope.isLoggedIn = true
+  $rootScope.isLoggedIn = false
   $rootScope.logout = logout
-  // $rootScope.$watch(
-  //   function () {
-  //     return store.get('token')
-  //   },
-  //   function () {
-  //     $rootScope.isLoggedIn = !!store.get('token')
-  //   }
-  // )
-  //
-  // function logout () {
-  //   store.remove('token')
-  //   store.remove('user');
-  // }
+  $rootScope.$watch(
+    function () {
+      return store.get('token')
+    },
+    function () {
+      $rootScope.isLoggedIn = !!store.get('token')
+    }
+  )
+
+  function logout () {
+    store.remove('token')
+    store.remove('user');
+    localStorage.removeItem('id');
+    localStorage.removeItem('d_id');
+    localStorage.removeItem('group_id');
+  }
 
 }])

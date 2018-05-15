@@ -1,5 +1,6 @@
 import 'angular'
 import 'angular-route'
+import 'angular-filter'
 import 'jquery'
 import './authentication'
 import './main'
@@ -13,17 +14,25 @@ import './modules/user/actions/edplanes/controller' //+
 import './modules/user/actions/discipline/controller' //+
 import './modules/user/actions/search/controller' //+
 import './modules/user/actions/profile/controller' //+
+import'./modules/user/actions/groups/controller' //+
+import'./modules/user/actions/marks/controller' //+
+
+//service
+import './modules/user/actions/groups/service'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap'
 
 import 'webpack-icons-installer/bootstrap'
 
-
+// css
 import './style.scss'
 import './modules/user/style.scss'
 import './modules/user/actions/addition/style.scss'
 import './modules/user/actions/profile/style.scss'
+import './modules/user/actions/discipline/style.scss'
+import './modules/user/actions/groups/style.scss'
+import './modules/user/actions/marks/style.scss'
 
 // style.js
 import './style'

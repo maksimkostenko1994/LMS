@@ -7257,7 +7257,9 @@ input {
   cursor: pointer; }
 
 .user-addition {
-  margin-top: 100px; }
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 70px; }
   .user-addition .user-search {
     width: 100%;
     text-align: left;
@@ -7325,7 +7327,7 @@ input {
     height: 100vh;
     margin: auto;
     width: 700px;
-    padding-top: 30vh; }
+    padding-top: 20vh; }
     .profile form input {
       border: none;
       background: transparent;
@@ -7345,3 +7347,15 @@ input {
         cursor: auto; }
     .profile form .display {
       display: none; }
+.courses {
+  overflow: auto;
+  height: 531px;
+  width: 100%;
+  margin-left: 10px; }
+  .courses td, .courses th {
+    text-align: center;
+    border: 1px solid black; }
+.groups th, .groups td {
+  border: 1px solid black; }
+.marks tr, .marks th {
+  border: 1px solid black; }

@@ -1,0 +1,18 @@
+<div class="groups">
+    <h1>{{groups[0].course.title}}</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Група</th>
+            <th>Викладач</th>
+        </tr>
+        </thead>
+
+        <tbody>
+            <tr ng-repeat="course in groups" ng-click="getMarks(course.id)">
+                <td>{{course.title}}</td>
+                <td>{{course.teacher.name}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
