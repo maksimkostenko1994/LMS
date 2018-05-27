@@ -18,8 +18,17 @@
         </tr>
         </thead>
 
-        <tbody>
+        <tbody ng-show="user.role.name === 'Методист УНП'">
         <tr ng-repeat="course in courses" ng-click="getGroups(course.id)">
+            <td>{{course.title}}</td>
+            <td>{{course.degree}}</td>
+            <td>{{course.faculty}}</td>
+            <td>{{course.speciality}}</td>
+            <td>{{course.semester}}</td>
+        </tr>
+        </tbody>
+        <tbody ng-show="user.role.name === 'Викладач'">
+        <tr ng-repeat="course in teacher" ng-click="getGroups(course.id)">
             <td>{{course.title}}</td>
             <td>{{course.degree}}</td>
             <td>{{course.faculty}}</td>

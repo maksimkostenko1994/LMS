@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "fe98f06a1cff7bdd4762"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "7f747816443f39552ac9"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -3209,10 +3209,6 @@ __webpack_require__(25);
 
 __webpack_require__(26);
 
-__webpack_require__(37);
-
-__webpack_require__(38);
-
 __webpack_require__(39);
 
 __webpack_require__(40);
@@ -3233,15 +3229,15 @@ __webpack_require__(47);
 
 __webpack_require__(48);
 
-__webpack_require__(61);
+__webpack_require__(49);
 
-__webpack_require__(63);
+__webpack_require__(50);
 
-__webpack_require__(64);
+__webpack_require__(51);
+
+__webpack_require__(52);
 
 __webpack_require__(65);
-
-__webpack_require__(66);
 
 __webpack_require__(67);
 
@@ -3268,6 +3264,16 @@ __webpack_require__(77);
 __webpack_require__(78);
 
 __webpack_require__(79);
+
+__webpack_require__(80);
+
+__webpack_require__(81);
+
+__webpack_require__(82);
+
+__webpack_require__(83);
+
+__webpack_require__(84);
 
 /***/ }),
 /* 5 */
@@ -36372,7 +36378,6 @@ angular.module('app', ['ngRoute', 'angular.filter', 'app.authentication']).confi
   $httpProvider.interceptors.push('authenticationInterceptor');
 }]).run(['$rootScope', '$http', '$window', function ($rootScope, $http, $window) {
   $rootScope.item = { email: '', password: '' };
-
   $rootScope.login = function () {
     $http.post('http://192.168.0.93:8080/informatics/login', $rootScope.item).then(function (response) {
       _store2.default.set('token', response.data.token);
@@ -36382,6 +36387,10 @@ angular.module('app', ['ngRoute', 'angular.filter', 'app.authentication']).confi
     $window.location.href = '#!/user/hello';
   };
 
+  $http.get('http://192.168.0.93:8080/informatics/users').then(function (response) {
+    console.log(response);
+    return $rootScope.users = response.data;
+  });
   $rootScope.user = JSON.parse(localStorage.getItem('user'));
 
   $rootScope.isLoggedIn = false;
@@ -36409,7 +36418,34 @@ angular.module('app', ['ngRoute', 'angular.filter', 'app.authentication']).confi
 
 
 angular.module('app').config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
-  $routeProvider.when('/user/addition', { template: __webpack_require__(27), controller: 'AddController' }).when('/user/hello', { template: __webpack_require__(28) }).when('/user/entrants', { template: __webpack_require__(29), controller: 'EntrantController' }).when('/user/lecturers', { template: __webpack_require__(30), controller: 'LecturerController' }).when('/user/edplanes', { template: __webpack_require__(31), controller: 'EducationController' }).when('/user/discipline', { template: __webpack_require__(32), controller: 'DisciplineController' }).when('/user/search', { template: __webpack_require__(33), controller: 'SearchController' }).when('/user/profile', { template: __webpack_require__(34), controller: 'ProfileController' }).when('/user/groups/:id', { template: __webpack_require__(35), controller: 'GroupController' }).when('/user/groups/marks/:id', { template: __webpack_require__(36), controller: 'MarkController' });
+  $routeProvider.when('/user/addition', { template: __webpack_require__(27), controller: 'AddController' }).when('/user/hello', { template: __webpack_require__(28) }).when('/user/entrants', {
+    template: __webpack_require__(29),
+    controller: 'EntrantController'
+  }).when('/user/lecturers', {
+    template: __webpack_require__(30),
+    controller: 'LecturerController'
+  }).when('/user/edplanes', {
+    template: __webpack_require__(31),
+    controller: 'EducationController'
+  }).when('/user/discipline', {
+    template: __webpack_require__(32),
+    controller: 'DisciplineController'
+  }).when('/user/search', { template: __webpack_require__(33), controller: 'SearchController' }).when('/user/profile', {
+    template: __webpack_require__(34),
+    controller: 'ProfileController'
+  }).when('/user/groups/:id', {
+    template: __webpack_require__(35),
+    controller: 'GroupController'
+  }).when('/user/groups/marks/:id', {
+    template: __webpack_require__(36),
+    controller: 'MarkController'
+  }).when('/user/courses', {
+    template: __webpack_require__(37),
+    controller: 'CourseController'
+  }).when('/user/courses/steps', {
+    template: __webpack_require__(38),
+    controller: 'StepsController'
+  });
   $locationProvider.html5Mode({ enable: true, requireBase: false }).hashPrefix('!');
 }]);
 
@@ -36447,7 +36483,7 @@ module.exports = "<h1>Education planes</h1>";
 /* 32 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n    <div class=\"col-lg-3\">\r\n        <label for=\"title\"></label>\r\n        <select id=\"title\">\r\n            <option value=\"\"></option>\r\n        </select>\r\n    </div>\r\n</div>\r\n<div class=\"row courses\">\r\n    <table>\r\n        <thead>\r\n        <tr>\r\n            <th>Назва</th>\r\n            <th>Рівень кваліфікасії</th>\r\n            <th>Факультет</th>\r\n            <th>Спесіальність</th>\r\n            <th>Семестр</th>\r\n        </tr>\r\n        </thead>\r\n\r\n        <tbody>\r\n        <tr ng-repeat=\"course in courses\" ng-click=\"getGroups(course.id)\">\r\n            <td>{{course.title}}</td>\r\n            <td>{{course.degree}}</td>\r\n            <td>{{course.faculty}}</td>\r\n            <td>{{course.speciality}}</td>\r\n            <td>{{course.semester}}</td>\r\n        </tr>\r\n        </tbody>\r\n    </table>\r\n</div>\r\n";
+module.exports = "<div class=\"row\">\r\n    <div class=\"col-lg-3\">\r\n        <label for=\"title\"></label>\r\n        <select id=\"title\">\r\n            <option value=\"\"></option>\r\n        </select>\r\n    </div>\r\n</div>\r\n<div class=\"row courses\">\r\n    <table>\r\n        <thead>\r\n        <tr>\r\n            <th>Назва</th>\r\n            <th>Рівень кваліфікасії</th>\r\n            <th>Факультет</th>\r\n            <th>Спесіальність</th>\r\n            <th>Семестр</th>\r\n        </tr>\r\n        </thead>\r\n\r\n        <tbody ng-show=\"user.role.name === 'Методист УНП'\">\r\n        <tr ng-repeat=\"course in courses\" ng-click=\"getGroups(course.id)\">\r\n            <td>{{course.title}}</td>\r\n            <td>{{course.degree}}</td>\r\n            <td>{{course.faculty}}</td>\r\n            <td>{{course.speciality}}</td>\r\n            <td>{{course.semester}}</td>\r\n        </tr>\r\n        </tbody>\r\n        <tbody ng-show=\"user.role.name === 'Викладач'\">\r\n        <tr ng-repeat=\"course in teacher\" ng-click=\"getGroups(course.id)\">\r\n            <td>{{course.title}}</td>\r\n            <td>{{course.degree}}</td>\r\n            <td>{{course.faculty}}</td>\r\n            <td>{{course.speciality}}</td>\r\n            <td>{{course.semester}}</td>\r\n        </tr>\r\n        </tbody>\r\n    </table>\r\n</div>\r\n";
 
 /***/ }),
 /* 33 */
@@ -36471,10 +36507,22 @@ module.exports = "<div class=\"groups\">\r\n    <h1>{{groups[0].course.title}}</
 /* 36 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"marks\">\r\n    <table>\r\n        <thead>\r\n            <tr>\r\n                <th></th>\r\n                <th ng-repeat=\"test in marks| unique:'title'\">{{test.title}}</th>\r\n            </tr>\r\n        </thead>\r\n\r\n        <tbody>\r\n            <tr ng-repeat=\"title in marks\">\r\n                <td ng-repeat=\"mark in title\">{{mark.grade}}</td>\r\n            </tr>\r\n        </tbody>\r\n    </table>\r\n</div>";
+module.exports = "<div class=\"marks\">\r\n    <a ng-click=\"getExcel(groupId)\">Експорт в Excel</a>\r\n    <table>\r\n        <thead>\r\n            <tr>\r\n                <th></th>\r\n                <th ng-repeat=\"test in marks| unique:'title'\">{{test.title}}</th>\r\n            </tr>\r\n        </thead>\r\n\r\n        <tbody>\r\n            <tr ng-repeat=\"title in marks| unique:'name'| orderBy:'name'\">\r\n                <td>{{title.name}}</td>\r\n                <td ng-repeat=\"grade in marks\" ng-if=\"title.name===grade.name\">{{grade.grade}}</td>\r\n            </tr>\r\n        </tbody>\r\n    </table>\r\n</div>";
 
 /***/ }),
 /* 37 */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"teacher_courses\">\r\n    <table>\r\n        <thead>\r\n        <tr>\r\n            <th>Назва</th>\r\n            <th>Рівень кваліфікації</th>\r\n            <th>Факультет</th>\r\n            <th>Спеціальність</th>\r\n            <th>Симестр</th>\r\n        </tr>\r\n        </thead>\r\n        <tbody>\r\n        <tr ng-repeat=\"course in courses\" ng-click=\"sentId(course.id)\">\r\n            <td>{{course.course.title}}</td>\r\n            <td>{{course.course.degree}}</td>\r\n            <td>{{course.course.faculty}}</td>\r\n            <td>{{course.course.speciality}}</td>\r\n            <td>{{course.course.semester}}</td>\r\n        </tr>\r\n        </tbody>\r\n    </table>\r\n</div>";
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports) {
+
+module.exports = "<div>\r\n    <table>\r\n        <thead>\r\n        <tr>\r\n            <th>Назва</th>\r\n            <th>Тип</th>\r\n            <th>Тиждень</th>\r\n            <th>Дедлайн</th>\r\n        </tr>\r\n        </thead>\r\n        <tbody>\r\n        <tr ng-repeat=\"step in steps\">\r\n            <td>{{step.title}}</td>\r\n            <td>{{step.type}}</td>\r\n            <td>{{step.week}}</td>\r\n            <td>{{step.duration}}</td>\r\n        </tr>\r\n        </tbody>\r\n    </table>\r\n</div>";
+
+/***/ }),
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36482,21 +36530,17 @@ module.exports = "<div class=\"marks\">\r\n    <table>\r\n        <thead>\r\n   
 
 angular.module('app').controller('AddController', ['$scope', '$http', function ($scope, $http) {
   $scope.items = { firstName: '', lastName: '', email: '', role: '' };
-
   $http.get('http://192.168.0.93:8080/informatics/roles').then(function (response) {
     return $scope.roles = response.data;
   });
-
   $http.get('http://192.168.0.93:8080/informatics/users').then(function (response) {
     return $scope.users = response.data;
   });
-
   $scope.addUser = function () {
     $http.post('http://192.168.0.93:8080/informatics/createUser', $scope.items).then(function (res) {
       console.log(res);
     });
   };
-
   $scope.getUser = function (id) {
     return $scope.editUser = id;
   };
@@ -36517,7 +36561,7 @@ angular.module('app').controller('AddController', ['$scope', '$http', function (
 }]);
 
 /***/ }),
-/* 38 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36526,7 +36570,7 @@ angular.module('app').controller('AddController', ['$scope', '$http', function (
 angular.module('app').controller('EntrantController', ['$scope', '$http', function ($scope, $http) {}]);
 
 /***/ }),
-/* 39 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36535,7 +36579,7 @@ angular.module('app').controller('EntrantController', ['$scope', '$http', functi
 angular.module('app').controller('LecturerController', ['$scope', '$http', function ($scope, $http) {}]);
 
 /***/ }),
-/* 40 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36544,7 +36588,7 @@ angular.module('app').controller('LecturerController', ['$scope', '$http', funct
 angular.module('app').controller('EducationController', ['$scope', '$http', function ($scope, $http) {}]);
 
 /***/ }),
-/* 41 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36552,8 +36596,12 @@ angular.module('app').controller('EducationController', ['$scope', '$http', func
 
 angular.module('app').controller('DisciplineController', ['$scope', '$http', '$window', 'GroupService', function ($scope, $http, $window, GroupService) {
   $http.get('http://192.168.0.93:8080/informatics/courses').then(function (res) {
-    //console.log(res.data)
     return $scope.courses = res.data;
+  });
+
+  $http.get('http://192.168.0.93:8080/informatics/courses?active').then(function (res) {
+    console.log(res.data);
+    return $scope.teacher = res.data;
   });
 
   $scope.getGroups = function (id) {
@@ -36563,7 +36611,7 @@ angular.module('app').controller('DisciplineController', ['$scope', '$http', '$w
 }]);
 
 /***/ }),
-/* 42 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36572,7 +36620,7 @@ angular.module('app').controller('DisciplineController', ['$scope', '$http', '$w
 angular.module('app').controller('SearchController', ['$scope', '$http', function ($scope, $http) {}]);
 
 /***/ }),
-/* 43 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36592,7 +36640,7 @@ angular.module('app').controller('ProfileController', ['$scope', '$http', functi
 }]);
 
 /***/ }),
-/* 44 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36600,7 +36648,7 @@ angular.module('app').controller('ProfileController', ['$scope', '$http', functi
 
 angular.module('app').controller('GroupController', ['$scope', '$http', '$window', 'GroupService', function ($scope, $http, $window, GroupService) {
   var id = GroupService.getDId();
-  $http.get('http://192.168.0.93:8080/informatics/students/group/id/' + id).then(function (res) {
+  $http.get('http://192.168.0.93:8080/informatics/group/id/' + id).then(function (res) {
     console.log(res.data);
     return $scope.groups = res.data;
   });
@@ -36612,22 +36660,69 @@ angular.module('app').controller('GroupController', ['$scope', '$http', '$window
 }]);
 
 /***/ }),
-/* 45 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-angular.module('app').controller('MarkController', ['$scope', '$http', 'GroupService', function ($scope, $http, GroupService) {
+angular.module('app').controller('MarkController', ['$scope', '$http', '$window', 'GroupService', function ($scope, $http, $window, GroupService) {
   var id = GroupService.getGroupId();
-  $http.get('http://192.168.0.93:8080/informatics/students/group/mark/id/' + id).then(function (res) {
-    console.log("Marks " + JSON.stringify(res.data));
+  $http.get('http://192.168.0.93:8080/informatics/group/mark/id/' + id).then(function (res) {
     return $scope.marks = res.data;
+  });
+
+  $scope.groupId = localStorage.getItem('group_id');
+  console.log($scope.groupId);
+
+  $scope.getExcel = function (id) {
+    console.log("This id " + id);
+    $http.post('http://192.168.0.93:8080/informatics/group/mark/id/' + id + '/exportExcel', id);
+    $window.location.href = 'http://192.168.0.93:8080/informatics/group/mark/id/' + id + '/exportExcel';
+  };
+}]);
+
+/***/ }),
+/* 48 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+angular.module('app').controller('CourseController', ['$scope', '$http', '$window', function ($scope, $http, $window) {
+
+  var user = JSON.parse(localStorage.getItem('user'));
+
+  $http.get('http://192.168.0.93:8080/informatics/courses/teacher/' + user.id).then(function (res) {
+    return $scope.courses = res.data;
+  });
+
+  $scope.sentId = function (id) {
+    console.log('Course id ' + id);
+    $http.get('http://192.168.0.93:8080/informatics/courses/steps/' + id);
+  };
+
+  // if(user.role.name === 'Викладач' && $window.location.href !== '#!/user/courses') {
+  //   $window.location.href = '#!/user/hello'
+  // }
+}]);
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+angular.module('app').controller('StepsController', ['$scope', '$http', '$window', 'GroupService', function ($scope, $http, $window) {
+  $http.get('http://192.168.0.93:8080/informatics/courses/steps/' + id).then(function (res) {
+    console.log('Steps ' + res.data);
+    return $scope.steps = res.data;
   });
 }]);
 
 /***/ }),
-/* 46 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36660,23 +36755,19 @@ angular.module('app').service('GroupService', [function () {
 }]);
 
 /***/ }),
-/* 47 */
+/* 51 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 48 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 // This file is autogenerated via the `commonjs` Grunt task. You can require() this file in a CommonJS environment.
-__webpack_require__(49);
-__webpack_require__(50);
-__webpack_require__(51);
-__webpack_require__(52);
 __webpack_require__(53);
 __webpack_require__(54);
 __webpack_require__(55);
@@ -36685,9 +36776,13 @@ __webpack_require__(57);
 __webpack_require__(58);
 __webpack_require__(59);
 __webpack_require__(60);
+__webpack_require__(61);
+__webpack_require__(62);
+__webpack_require__(63);
+__webpack_require__(64);
 
 /***/ }),
-/* 49 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36757,7 +36852,7 @@ __webpack_require__(60);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 50 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36851,7 +36946,7 @@ __webpack_require__(60);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 51 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36978,7 +37073,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 52 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37215,7 +37310,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 53 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37406,7 +37501,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 54 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37565,7 +37660,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 55 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37880,7 +37975,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 56 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38379,7 +38474,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 57 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38489,7 +38584,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 58 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38651,7 +38746,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 59 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38788,7 +38883,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 60 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38951,37 +39046,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 61 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(62);
-
-/***/ }),
-/* 62 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 63 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 64 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 65 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
+__webpack_require__(66);
 
 /***/ }),
 /* 66 */
@@ -39009,6 +39080,36 @@ __webpack_require__(62);
 
 /***/ }),
 /* 70 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 71 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 72 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 73 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 74 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39105,7 +39206,7 @@ $(function () {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(0)))
 
 /***/ }),
-/* 71 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39151,7 +39252,7 @@ $(function () {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 72 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39192,43 +39293,43 @@ $(document).ready(function () {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 73 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/exit.png";
 
 /***/ }),
-/* 74 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/IntegrationService.jpg";
 
 /***/ }),
-/* 75 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/logo.png";
 
 /***/ }),
-/* 76 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/search.png";
 
 /***/ }),
-/* 77 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/user-icon.png";
 
 /***/ }),
-/* 78 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/logo.jpg";
 
 /***/ }),
-/* 79 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/teacher.png";

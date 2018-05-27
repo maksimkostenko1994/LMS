@@ -16,6 +16,8 @@ import './modules/user/actions/search/controller' //+
 import './modules/user/actions/profile/controller' //+
 import'./modules/user/actions/groups/controller' //+
 import'./modules/user/actions/marks/controller' //+
+import'./modules/user/actions/courses/controller' //+
+import'./modules/user/actions/steps/controller' //+
 
 //service
 import './modules/user/actions/groups/service'
@@ -33,6 +35,7 @@ import './modules/user/actions/profile/style.scss'
 import './modules/user/actions/discipline/style.scss'
 import './modules/user/actions/groups/style.scss'
 import './modules/user/actions/marks/style.scss'
+import './modules/user/actions/courses/style.scss'
 
 // style.js
 import './style'

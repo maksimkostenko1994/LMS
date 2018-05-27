@@ -1,0 +1,22 @@
+<div class="teacher_courses">
+    <table>
+        <thead>
+        <tr>
+            <th>Назва</th>
+            <th>Рівень кваліфікації</th>
+            <th>Факультет</th>
+            <th>Спеціальність</th>
+            <th>Симестр</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="course in courses" ng-click="sentId(course.course.id)">
+            <td>{{course.course.title}}</td>
+            <td>{{course.course.degree}}</td>
+            <td>{{course.course.faculty}}</td>
+            <td>{{course.course.speciality}}</td>
+            <td>{{course.course.semester}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

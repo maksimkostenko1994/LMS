@@ -7357,5 +7357,8 @@ input {
     border: 1px solid black; }
 .groups th, .groups td {
   border: 1px solid black; }
-.marks tr, .marks th {
+.marks td, .marks th {
   border: 1px solid black; }
+.teacher_courses th, .teacher_courses td {
+  border: 1px solid black;
+  text-align: center; }

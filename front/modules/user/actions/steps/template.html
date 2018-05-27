@@ -1,0 +1,20 @@
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>Назва</th>
+            <th>Тип</th>
+            <th>Тиждень</th>
+            <th>Дедлайн</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="step in steps">
+            <td>{{step.title}}</td>
+            <td>{{step.type}}</td>
+            <td>{{step.week}}</td>
+            <td>{{step.duration | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
