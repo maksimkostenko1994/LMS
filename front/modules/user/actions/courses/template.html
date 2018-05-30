@@ -1,21 +1,24 @@
-<div class="teacher_courses">
-    <table>
-        <thead>
+<div class="teacher-courses">
+    <div class="teacher-search">
+        <input type="text" ng-model="searchText" placeholder="Пошук...">
+    </div>
+    <table class="teacher-table">
+        <thead class="teacher-table-head">
         <tr>
-            <th>Назва</th>
-            <th>Рівень кваліфікації</th>
-            <th>Факультет</th>
-            <th>Спеціальність</th>
-            <th>Симестр</th>
+            <th><a ng-click="sortBy('title')">Назва</a></th>
+            <th class="degree"><a ng-click="sortBy('degree')">Рівень кваліфікації</a></th>
+            <th><a ng-click="sortBy('faculty')">Факультет</a></th>
+            <th><a ng-click="sortBy('speciality')">Спеціальність</a></th>
+            <th><a ng-click="sortBy('semester')">Семестр</a></th>
         </tr>
         </thead>
-        <tbody>
-        <tr ng-repeat="course in courses" ng-click="sentId(course.course.id)">
+        <tbody class="teacher-table-body">
+        <tr ng-repeat="course in courses | orderBy:propertyName:reverse | filter:searchText" ng-click="sentId(course.course.id)">
             <td>{{course.course.title}}</td>
             <td>{{course.course.degree}}</td>
             <td>{{course.course.faculty}}</td>
             <td>{{course.course.speciality}}</td>
-            <td>{{course.course.semester}}</td>
+            <td>{{course.course.semester | number:0}}</td>
         </tr>
         </tbody>
     </table>

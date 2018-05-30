@@ -7362,3 +7362,5 @@ input {
 .teacher_courses th, .teacher_courses td {
   border: 1px solid black;
   text-align: center; }
+.home {
+  margin-top: 270px; }

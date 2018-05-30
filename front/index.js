@@ -18,6 +18,7 @@ import'./modules/user/actions/groups/controller' //+
 import'./modules/user/actions/marks/controller' //+
 import'./modules/user/actions/courses/controller' //+
 import'./modules/user/actions/steps/controller' //+
+import'./modules/user/actions/hello/controller' //+
 
 //service
 import './modules/user/actions/groups/service'
@@ -36,6 +37,7 @@ import './modules/user/actions/discipline/style.scss'
 import './modules/user/actions/groups/style.scss'
 import './modules/user/actions/marks/style.scss'
 import './modules/user/actions/courses/style.scss'
+import './modules/user/actions/hello/style.scss'
 
 // style.js
 import './style'

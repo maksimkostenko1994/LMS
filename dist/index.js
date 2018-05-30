@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "7f747816443f39552ac9"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "fd072f922a92ee41721f"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -3237,9 +3237,9 @@ __webpack_require__(51);
 
 __webpack_require__(52);
 
-__webpack_require__(65);
+__webpack_require__(53);
 
-__webpack_require__(67);
+__webpack_require__(66);
 
 __webpack_require__(68);
 
@@ -3274,6 +3274,10 @@ __webpack_require__(82);
 __webpack_require__(83);
 
 __webpack_require__(84);
+
+__webpack_require__(85);
+
+__webpack_require__(86);
 
 /***/ }),
 /* 5 */
@@ -36391,6 +36395,11 @@ angular.module('app', ['ngRoute', 'angular.filter', 'app.authentication']).confi
     console.log(response);
     return $rootScope.users = response.data;
   });
+
+  $rootScope.getIntegration = function () {
+    $http.get('http://192.168.0.93:8080/informatics/integrateWithOptima');
+  };
+
   $rootScope.user = JSON.parse(localStorage.getItem('user'));
 
   $rootScope.isLoggedIn = false;
@@ -36459,7 +36468,7 @@ module.exports = "<div class=\"modal\" id=\"modal\">\r\n    <span class=\"close\
 /* 28 */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Hello USER!!!</h1>\r\n<h1>Hello USER!!!</h1>\r\n<h1>Hello USER!!!</h1>\r\n<h1>Hello USER!!!</h1>\r\n<h1>Hello USER!!!</h1>\r\n<h1>Hello USER!!!</h1>\r\n<h1>Hello USER!!!</h1>\r\n<h1>Hello USER!!!</h1>\r\n<h1>Hello USER!!!</h1>\r\n<h1>Hello USER!!!</h1>\r\n<h1>Hello USER!!!</h1>\r\n<h1>Hello USER!!!</h1>\r\n<h1>Hello USER!!!</h1>";
+module.exports = "<div class=\"home\">\r\n    <h1>Ласкаво просимо, {{user.firstName}} {{user.lastName}}!</h1>\r\n    <h2>Ваша посада - {{user.role.name}}!</h2>\r\n    <h3 ng-show=\"user.role.name === 'Адміністратор'\">Вам доступні наступні модулі - Менеджмент користувачів та Інтеграція з Optima!</h3>\r\n</div>";
 
 /***/ }),
 /* 29 */
@@ -36513,13 +36522,13 @@ module.exports = "<div class=\"marks\">\r\n    <a ng-click=\"getExcel(groupId)\"
 /* 37 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"teacher_courses\">\r\n    <table>\r\n        <thead>\r\n        <tr>\r\n            <th>Назва</th>\r\n            <th>Рівень кваліфікації</th>\r\n            <th>Факультет</th>\r\n            <th>Спеціальність</th>\r\n            <th>Симестр</th>\r\n        </tr>\r\n        </thead>\r\n        <tbody>\r\n        <tr ng-repeat=\"course in courses\" ng-click=\"sentId(course.id)\">\r\n            <td>{{course.course.title}}</td>\r\n            <td>{{course.course.degree}}</td>\r\n            <td>{{course.course.faculty}}</td>\r\n            <td>{{course.course.speciality}}</td>\r\n            <td>{{course.course.semester}}</td>\r\n        </tr>\r\n        </tbody>\r\n    </table>\r\n</div>";
+module.exports = "<div class=\"teacher_courses\">\r\n    <table>\r\n        <thead>\r\n        <tr>\r\n            <th>Назва</th>\r\n            <th>Рівень кваліфікації</th>\r\n            <th>Факультет</th>\r\n            <th>Спеціальність</th>\r\n            <th>Симестр</th>\r\n        </tr>\r\n        </thead>\r\n        <tbody>\r\n        <tr ng-repeat=\"course in courses\" ng-click=\"sentId(course.course.id)\">\r\n            <td>{{course.course.title}}</td>\r\n            <td>{{course.course.degree}}</td>\r\n            <td>{{course.course.faculty}}</td>\r\n            <td>{{course.course.speciality}}</td>\r\n            <td>{{course.course.semester}}</td>\r\n        </tr>\r\n        </tbody>\r\n    </table>\r\n</div>";
 
 /***/ }),
 /* 38 */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\r\n    <table>\r\n        <thead>\r\n        <tr>\r\n            <th>Назва</th>\r\n            <th>Тип</th>\r\n            <th>Тиждень</th>\r\n            <th>Дедлайн</th>\r\n        </tr>\r\n        </thead>\r\n        <tbody>\r\n        <tr ng-repeat=\"step in steps\">\r\n            <td>{{step.title}}</td>\r\n            <td>{{step.type}}</td>\r\n            <td>{{step.week}}</td>\r\n            <td>{{step.duration}}</td>\r\n        </tr>\r\n        </tbody>\r\n    </table>\r\n</div>";
+module.exports = "<div>\r\n    <table>\r\n        <thead>\r\n        <tr>\r\n            <th>Назва</th>\r\n            <th>Тип</th>\r\n            <th>Тиждень</th>\r\n            <th>Дедлайн</th>\r\n        </tr>\r\n        </thead>\r\n        <tbody>\r\n        <tr ng-repeat=\"step in steps\">\r\n            <td>{{step.title}}</td>\r\n            <td>{{step.type}}</td>\r\n            <td>{{step.week}}</td>\r\n            <td>{{step.duration | date:'yyyy-MM-dd HH:mm:ss'}}</td>\r\n        </tr>\r\n        </tbody>\r\n    </table>\r\n</div>";
 
 /***/ }),
 /* 39 */
@@ -36699,7 +36708,9 @@ angular.module('app').controller('CourseController', ['$scope', '$http', '$windo
 
   $scope.sentId = function (id) {
     console.log('Course id ' + id);
+    localStorage.setItem('id_course', id);
     $http.get('http://192.168.0.93:8080/informatics/courses/steps/' + id);
+    $window.location.href = '#!/user/courses/steps';
   };
 
   // if(user.role.name === 'Викладач' && $window.location.href !== '#!/user/courses') {
@@ -36715,6 +36726,8 @@ angular.module('app').controller('CourseController', ['$scope', '$http', '$windo
 
 
 angular.module('app').controller('StepsController', ['$scope', '$http', '$window', 'GroupService', function ($scope, $http, $window) {
+
+  var id = JSON.parse(localStorage.getItem('id_course'));
   $http.get('http://192.168.0.93:8080/informatics/courses/steps/' + id).then(function (res) {
     console.log('Steps ' + res.data);
     return $scope.steps = res.data;
@@ -36723,6 +36736,17 @@ angular.module('app').controller('StepsController', ['$scope', '$http', '$window
 
 /***/ }),
 /* 50 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+angular.module('app').controller('HomeController', ['$scope', function ($scope) {
+  $scope.user = JSON.parse(localStorage.getItem('user'));
+}]);
+
+/***/ }),
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36755,20 +36779,19 @@ angular.module('app').service('GroupService', [function () {
 }]);
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 // This file is autogenerated via the `commonjs` Grunt task. You can require() this file in a CommonJS environment.
-__webpack_require__(53);
 __webpack_require__(54);
 __webpack_require__(55);
 __webpack_require__(56);
@@ -36780,9 +36803,10 @@ __webpack_require__(61);
 __webpack_require__(62);
 __webpack_require__(63);
 __webpack_require__(64);
+__webpack_require__(65);
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36852,7 +36876,7 @@ __webpack_require__(64);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36946,7 +36970,7 @@ __webpack_require__(64);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37073,7 +37097,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37310,7 +37334,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37501,7 +37525,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37660,7 +37684,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37975,7 +37999,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38474,7 +38498,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38584,7 +38608,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38746,7 +38770,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38883,7 +38907,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39046,19 +39070,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(66);
-
-/***/ }),
-/* 66 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
+__webpack_require__(67);
 
 /***/ }),
 /* 67 */
@@ -39110,6 +39128,18 @@ __webpack_require__(66);
 
 /***/ }),
 /* 75 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 76 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39206,7 +39236,7 @@ $(function () {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(0)))
 
 /***/ }),
-/* 76 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39252,7 +39282,7 @@ $(function () {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 77 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39293,43 +39323,43 @@ $(document).ready(function () {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 78 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/exit.png";
 
 /***/ }),
-/* 79 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/IntegrationService.jpg";
 
 /***/ }),
-/* 80 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/logo.png";
 
 /***/ }),
-/* 81 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/search.png";
 
 /***/ }),
-/* 82 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/user-icon.png";
 
 /***/ }),
-/* 83 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/logo.jpg";
 
 /***/ }),
-/* 84 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/teacher.png";

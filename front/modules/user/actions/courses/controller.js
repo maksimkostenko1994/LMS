@@ -4,6 +4,8 @@ angular.module('app').controller('CourseController', ['$scope', '$http', '$windo
     let user = JSON.parse(localStorage.getItem('user'))
 
     $http.get(`http://192.168.0.93:8080/informatics/courses/teacher/${user.id}`).then(function (res) {
+      console.log(res.data[0].course.semester)
+      console.log(typeof res.data[0].course.semester)
       return $scope.courses = res.data
     })
     
@@ -15,8 +17,13 @@ angular.module('app').controller('CourseController', ['$scope', '$http', '$windo
       $window.location.href = '#!/user/courses/steps'
     }
 
-    // if(user.role.name === 'Викладач' && $window.location.href !== '#!/user/courses') {
-    //   $window.location.href = '#!/user/hello'
-    // }
+    $scope.propertyName = 'id'
+    $scope.reverse = true
+
+    $scope.sortBy = function (propertyName) {
+      $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false
+      $scope.propertyName = propertyName
+    }
+
   }
 ])

@@ -1,13 +1,5 @@
-<h1>Hello USER!!!</h1>
-<h1>Hello USER!!!</h1>
-<h1>Hello USER!!!</h1>
-<h1>Hello USER!!!</h1>
-<h1>Hello USER!!!</h1>
-<h1>Hello USER!!!</h1>
-<h1>Hello USER!!!</h1>
-<h1>Hello USER!!!</h1>
-<h1>Hello USER!!!</h1>
-<h1>Hello USER!!!</h1>
-<h1>Hello USER!!!</h1>
-<h1>Hello USER!!!</h1>
-<h1>Hello USER!!!</h1>
+<div class="home">
+    <h1>Ласкаво просимо, {{user.firstName}} {{user.lastName}}!</h1>
+    <h2>Ваша посада - {{user.role.name}}!</h2>
+    <h3 ng-show="user.role.name === 'Адміністратор'">Вам доступні наступні модулі - Менеджмент користувачів та Інтеграція з Optima!</h3>
+</div>

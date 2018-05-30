@@ -18,6 +18,11 @@ angular.module('app', ['ngRoute', 'angular.filter', 'app.authentication']).confi
     console.log(response)
     return $rootScope.users = response.data
   })
+
+  $rootScope.getIntegration = function() {
+    $http.get('http://192.168.0.93:8080/informatics/integrateWithOptima');
+  }
+
   $rootScope.user = JSON.parse(localStorage.getItem('user'))
 
   $rootScope.isLoggedIn = false
@@ -38,4 +43,5 @@ angular.module('app', ['ngRoute', 'angular.filter', 'app.authentication']).confi
     localStorage.removeItem('d_id')
     localStorage.removeItem('group_id')
   }
-}])
+}
+])
