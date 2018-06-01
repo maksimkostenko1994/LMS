@@ -1,18 +1,19 @@
-<div class="groups">
-    <h1>{{groups[0].course.title}}</h1>
-    <table>
-        <thead>
+<div class="teachers-groups">
+    <div class="teacher-search">
+        <input type="text" ng-model="searchText" placeholder="Пошук...">
+    </div>
+    <table class="teacher-table">
+        <thead class="teacher-table-head">
         <tr>
-            <th>Група</th>
-            <th>Викладач</th>
+            <th><a ng-click="sortBy('group')">Група</a></th>
+            <th><a ng-click="sortBy('teacher')">Викладач</a></th>
         </tr>
         </thead>
-
-        <tbody>
-            <tr ng-repeat="course in groups" ng-click="getMarks(course.id)">
-                <td>{{course.title}}</td>
-                <td>{{course.teacher.name}}</td>
-            </tr>
+        <tbody class="teacher-table-body">
+        <tr ng-repeat="course in groups | orderBy:propertyName:reverse | filter:searchText" ng-click="getMarks(course.id)">
+            <td>{{course.title}}</td>
+            <td>{{course.teacher.name}}</td>
+        </tr>
         </tbody>
     </table>
 </div>

@@ -1,15 +1,25 @@
-<div>
-    <table>
-        <thead>
+<div class="teacher-steps">
+    <div class="steps-search">
+        <div class="col-lg-6">
+            <input type="text" ng-model="searchText" placeholder="Пошук...">
+        </div>
+    </div>
+    <div class="step-addition" align="right">
+        <div class="col-lg-6">
+            <a id="stepModalBtn"><span class="glyphicon glyphicon-plus"></span></a>
+        </div>
+    </div>
+    <table class="steps-table">
+        <thead class="steps-table-head">
         <tr>
-            <th>Назва</th>
-            <th>Тип</th>
-            <th>Тиждень</th>
-            <th>Дедлайн</th>
+            <th><a ng-click="sortBy('title')">Назва</a></th>
+            <th><a ng-click="sortBy('type')">Тип</a></th>
+            <th><a ng-click="sortBy('week')">Тиждень</a></th>
+            <th><a ng-click="sortBy('duration')">Дедлайн</a></th>
         </tr>
         </thead>
-        <tbody>
-        <tr ng-repeat="step in steps">
+        <tbody class="steps-table-body">
+        <tr ng-repeat="step in steps | orderBy:propertyName:reverse | filter:searchText" id="{{step.id}}" ng-click="updateStep(step.id)">
             <td>{{step.title}}</td>
             <td>{{step.type}}</td>
             <td>{{step.week}}</td>
@@ -17,4 +27,52 @@
         </tr>
         </tbody>
     </table>
+</div>
+<div id="stepModal" class="steps-add">
+    <div class="steps-add-content">
+        <div class="row" align="right">
+            <a class="close"><span class="glyphicon glyphicon-remove"></span></a>
+        </div>
+        <div class="row">
+            <input type="text" ng-model="newStep.title">
+        </div>
+        <div class="row">
+            <input type="text" ng-model="newStep.type">
+        </div>
+        <div class="row">
+            <select ng-model="newStep.week">
+                <option ng-repeat="week in weeks" ng-selected="weeks[0]">{{week}}</option>
+            </select>
+        </div>
+        <div class="row">
+            <input type="date" ng-model="newStep.duration">
+        </div>
+        <div class="row" align="center">
+            <button ng-click="setStep()">Додати</button>
+        </div>
+    </div>
+</div>
+<div id="updateModal" class="steps-update">
+    <div class="steps-add-content">
+        <div class="row" align="right">
+            <a class="close"><span class="glyphicon glyphicon-remove"></span></a>
+        </div>
+        <div class="row">
+            <input type="text" value="update.title" ng-model="update.title">
+        </div>
+        <div class="row">
+            <input type="text" value="update.title" ng-model="update.type">
+        </div>
+        <div class="row">
+            <select ng-model="update.week">
+                <option ng-repeat="week in weeks">{{week}}</option>
+            </select>
+        </div>
+        <div class="row">
+            <input type="date" value="update.duration" ng-model="update.duration">
+        </div>
+        <div class="row" align="center">
+            <button ng-click="setUpdatedStep()">Редагувати</button>
+        </div>
+    </div>
 </div>

@@ -7222,6 +7222,10 @@ input {
           background: rgba(0, 0, 0, 0.4);
           color: white;
           transition: 1s ease-out; }
+        .nav-services-bar li a div:focus {
+          color: white;
+          background: rgba(0, 0, 0, 0.4);
+          outline: none; }
         .nav-services-bar li a div span {
           margin-right: 25px; }
 .modal {
@@ -7359,8 +7363,316 @@ input {
   border: 1px solid black; }
 .marks td, .marks th {
   border: 1px solid black; }
-.teacher_courses th, .teacher_courses td {
-  border: 1px solid black;
-  text-align: center; }
+.teacher-courses {
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top: 70px; }
+  .teacher-courses .teacher-search {
+    width: 100%;
+    text-align: left;
+    padding: 15px 15px 5px 15px;
+    border-radius: 10px 10px 0 0;
+    background: #E77D00; }
+    .teacher-courses .teacher-search input {
+      background: #A95600;
+      width: 350px;
+      height: 40px;
+      font-size: 20px;
+      border: none;
+      padding-left: 10px;
+      border-radius: 10px 10px 10px 10px;
+      transition: background 0.6s ease-out, border-radius 0.6s linear; }
+      .teacher-courses .teacher-search input::placeholder {
+        color: white; }
+      .teacher-courses .teacher-search input:focus {
+        background: #FFDA5C;
+        border-radius: 0 0 0 0; }
+  .teacher-courses .teacher-table {
+    text-align: center;
+    width: 100%;
+    box-shadow: 0 9px 15px rgba(0, 0, 0, 0.1); }
+    .teacher-courses .teacher-table .teacher-table-head {
+      color: white;
+      background: #E77D00; }
+      .teacher-courses .teacher-table .teacher-table-head .degree {
+        padding: 0;
+        text-align: justify;
+        width: 220px; }
+      .teacher-courses .teacher-table .teacher-table-head th {
+        text-align: center; }
+        .teacher-courses .teacher-table .teacher-table-head th a {
+          border-radius: 10px 10px 10px 10px;
+          padding: 2px 30px 2px 30px;
+          color: white;
+          transition: background 0.4s ease-out; }
+          .teacher-courses .teacher-table .teacher-table-head th a:hover {
+            border-radius: 10px 10px 10px 10px;
+            background: #A95600;
+            text-decoration: none;
+            cursor: pointer; }
+    .teacher-courses .teacher-table .teacher-table-body {
+      color: black; }
+      .teacher-courses .teacher-table .teacher-table-body tr td span {
+        align-items: center; }
+      .teacher-courses .teacher-table .teacher-table-body tr:nth-child(2n+1) {
+        background: #A5B9FF; }
+      .teacher-courses .teacher-table .teacher-table-body tr:nth-child(2n) {
+        background: #D4CFFF; }
+      .teacher-courses .teacher-table .teacher-table-body tr:hover {
+        color: #5A6374;
+        cursor: pointer; }
+      .teacher-courses .teacher-table .teacher-table-body a {
+        color: black;
+        text-decoration: none; }
+        .teacher-courses .teacher-table .teacher-table-body a span:hover {
+          color: white;
+          font: bold; }
+      .teacher-courses .teacher-table .teacher-table-body span:hover {
+        color: black; }
+      .teacher-courses .teacher-table .teacher-table-body .vertical-line {
+        border-right: 1px solid black; }
 .home {
   margin-top: 270px; }
+.teacher-steps {
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top: 70px; }
+  .teacher-steps .steps-search {
+    text-align: left;
+    padding: 15px 15px 5px 15px;
+    border-radius: 10px 10px 0 0;
+    background: #E77D00; }
+    .teacher-steps .steps-search input {
+      background: #A95600;
+      width: 350px;
+      height: 40px;
+      font-size: 20px;
+      border: none;
+      padding-left: 10px;
+      border-radius: 10px 10px 10px 10px;
+      transition: background 0.6s ease-out, border-radius 0.6s linear; }
+      .teacher-steps .steps-search input::placeholder {
+        color: white; }
+      .teacher-steps .steps-search input:focus {
+        background: #FFDA5C;
+        border-radius: 0 0 0 0; }
+  .teacher-steps .step-addition {
+    background: #E77D00;
+    padding: 15px 15px 30px 15px; }
+    .teacher-steps .step-addition a {
+      border-radius: 10px 10px 10px 10px;
+      padding: 2px 30px 2px 30px;
+      color: white;
+      transition: background 0.4s ease-out; }
+      .teacher-steps .step-addition a:hover {
+        border-radius: 10px 10px 10px 10px;
+        background: #A95600;
+        text-decoration: none;
+        cursor: pointer; }
+  .teacher-steps .steps-table {
+    text-align: center;
+    width: 100%;
+    box-shadow: 0 9px 15px rgba(0, 0, 0, 0.1); }
+    .teacher-steps .steps-table .steps-table-head {
+      color: white;
+      background: #E77D00; }
+      .teacher-steps .steps-table .steps-table-head th {
+        text-align: center; }
+        .teacher-steps .steps-table .steps-table-head th a {
+          border-radius: 10px 10px 10px 10px;
+          padding: 2px 30px 2px 30px;
+          color: white;
+          transition: background 0.4s ease-out; }
+          .teacher-steps .steps-table .steps-table-head th a:hover {
+            border-radius: 10px 10px 10px 10px;
+            background: #A95600;
+            text-decoration: none;
+            cursor: pointer; }
+    .teacher-steps .steps-table .steps-table-body {
+      color: black; }
+      .teacher-steps .steps-table .steps-table-body tr td span {
+        align-items: center; }
+      .teacher-steps .steps-table .steps-table-body tr:nth-child(2n+1) {
+        background: #A5B9FF; }
+      .teacher-steps .steps-table .steps-table-body tr:nth-child(2n) {
+        background: #D4CFFF; }
+      .teacher-steps .steps-table .steps-table-body tr:hover {
+        color: #5A6374;
+        cursor: pointer; }
+      .teacher-steps .steps-table .steps-table-body a {
+        color: black;
+        text-decoration: none; }
+        .teacher-steps .steps-table .steps-table-body a span:hover {
+          color: white; }
+      .teacher-steps .steps-table .steps-table-body span:hover {
+        color: black; }
+      .teacher-steps .steps-table .steps-table-body .vertical-line {
+        border-right: 1px solid black; }
+
+.steps-update {
+  display: none;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow: auto; }
+  .steps-update .steps-add-content {
+    margin: 35px auto auto auto;
+    border: 1px solid white;
+    height: 400px;
+    width: 600px;
+    background: #ffffff; }
+    .steps-update .steps-add-content div.zabuto_calendar {
+      margin-left: 100px;
+      padding: 0; }
+      .steps-update .steps-add-content div.zabuto_calendar .badge-event {
+        font-size: 0.95em;
+        padding-left: 8px;
+        padding-right: 8px;
+        padding-bottom: 4px; }
+      .steps-update .steps-add-content div.zabuto_calendar .badge-event, .steps-update .steps-add-content div.zabuto_calendar span.badge-event {
+        background-color: #ff9b08;
+        color: #ffffff;
+        text-shadow: none; }
+      .steps-update .steps-add-content div.zabuto_calendar .badge-today, .steps-update .steps-add-content div.zabuto_calendar span.badge-today {
+        background-color: #357ebd;
+        color: #ffffff;
+        text-shadow: none; }
+      .steps-update .steps-add-content div.zabuto_calendar .table {
+        width: 400px;
+        height: 100px;
+        margin: 0;
+        padding: 0; }
+        .steps-update .steps-add-content div.zabuto_calendar .table tr {
+          background-color: #ffffff; }
+          .steps-update .steps-add-content div.zabuto_calendar .table tr td.dow-clickable, .steps-update .steps-add-content div.zabuto_calendar .table tr td.event-clickable {
+            cursor: pointer; }
+          .steps-update .steps-add-content div.zabuto_calendar .table tr td.event div.day {
+            background-color: #fff0c3; }
+          .steps-update .steps-add-content div.zabuto_calendar .table tr th, .steps-update .steps-add-content div.zabuto_calendar .table tr td {
+            text-align: center;
+            width: 40px; }
+          .steps-update .steps-add-content div.zabuto_calendar .table tr td div.day {
+            margin: 0; }
+            .steps-update .steps-add-content div.zabuto_calendar .table tr td div.day:hover {
+              background: #C6C6C6;
+              border-radius: 50px;
+              cursor: pointer; }
+          .steps-update .steps-add-content div.zabuto_calendar .table tr .calendar-month-header th {
+            background-color: #fafafa;
+            padding-top: 12px;
+            padding-bottom: 4px; }
+            .steps-update .steps-add-content div.zabuto_calendar .table tr .calendar-month-header th span {
+              cursor: pointer;
+              display: inline-block;
+              padding-bottom: 10px; }
+          .steps-update .steps-add-content div.zabuto_calendar .table tr .calendar-dow-header th {
+            background-color: #f0f0f0; }
+          .steps-update .steps-add-content div.zabuto_calendar .table tr:last-child {
+            border-bottom: 1px solid #dddddd; }
+      .steps-update .steps-add-content div.zabuto_calendar .table-bordered tr.calendar-month-header th {
+        border-left: 0;
+        border-right: 0; }
+        .steps-update .steps-add-content div.zabuto_calendar .table-bordered tr.calendar-month-header th:first-child {
+          border-left: 1px solid #dddddd; }
+      .steps-update .steps-add-content div.zabuto_calendar .calendar-month-navigation {
+        cursor: pointer;
+        margin: 0;
+        padding: 0;
+        padding-top: 5px; }
+    .steps-update .steps-add-content input {
+      margin-top: 10px;
+      margin-bottom: 10px; }
+    .steps-update .steps-add-content .close {
+      color: #5C6576;
+      font-size: 28px;
+      font-weight: bold;
+      margin-right: 15px; }
+
+.steps-add {
+  display: none;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow: auto; }
+  .steps-add .steps-add-content {
+    margin: 35px auto auto auto;
+    border: 1px solid white;
+    height: 400px;
+    width: 600px;
+    background: #ffffff; }
+    .steps-add .steps-add-content div.zabuto_calendar {
+      margin-left: 100px;
+      padding: 0; }
+      .steps-add .steps-add-content div.zabuto_calendar .badge-event {
+        font-size: 0.95em;
+        padding-left: 8px;
+        padding-right: 8px;
+        padding-bottom: 4px; }
+      .steps-add .steps-add-content div.zabuto_calendar .badge-event, .steps-add .steps-add-content div.zabuto_calendar span.badge-event {
+        background-color: #ff9b08;
+        color: #ffffff;
+        text-shadow: none; }
+      .steps-add .steps-add-content div.zabuto_calendar .badge-today, .steps-add .steps-add-content div.zabuto_calendar span.badge-today {
+        background-color: #357ebd;
+        color: #ffffff;
+        text-shadow: none; }
+      .steps-add .steps-add-content div.zabuto_calendar .table {
+        width: 400px;
+        height: 100px;
+        margin: 0;
+        padding: 0; }
+        .steps-add .steps-add-content div.zabuto_calendar .table tr {
+          background-color: #ffffff; }
+          .steps-add .steps-add-content div.zabuto_calendar .table tr td.dow-clickable, .steps-add .steps-add-content div.zabuto_calendar .table tr td.event-clickable {
+            cursor: pointer; }
+          .steps-add .steps-add-content div.zabuto_calendar .table tr td.event div.day {
+            background-color: #fff0c3; }
+          .steps-add .steps-add-content div.zabuto_calendar .table tr th, .steps-add .steps-add-content div.zabuto_calendar .table tr td {
+            text-align: center;
+            width: 40px; }
+          .steps-add .steps-add-content div.zabuto_calendar .table tr td div.day {
+            margin: 0; }
+            .steps-add .steps-add-content div.zabuto_calendar .table tr td div.day:hover {
+              background: #C6C6C6;
+              border-radius: 50px;
+              cursor: pointer; }
+          .steps-add .steps-add-content div.zabuto_calendar .table tr .calendar-month-header th {
+            background-color: #fafafa;
+            padding-top: 12px;
+            padding-bottom: 4px; }
+            .steps-add .steps-add-content div.zabuto_calendar .table tr .calendar-month-header th span {
+              cursor: pointer;
+              display: inline-block;
+              padding-bottom: 10px; }
+          .steps-add .steps-add-content div.zabuto_calendar .table tr .calendar-dow-header th {
+            background-color: #f0f0f0; }
+          .steps-add .steps-add-content div.zabuto_calendar .table tr:last-child {
+            border-bottom: 1px solid #dddddd; }
+      .steps-add .steps-add-content div.zabuto_calendar .table-bordered tr.calendar-month-header th {
+        border-left: 0;
+        border-right: 0; }
+        .steps-add .steps-add-content div.zabuto_calendar .table-bordered tr.calendar-month-header th:first-child {
+          border-left: 1px solid #dddddd; }
+      .steps-add .steps-add-content div.zabuto_calendar .calendar-month-navigation {
+        cursor: pointer;
+        margin: 0;
+        padding: 0;
+        padding-top: 5px; }
+    .steps-add .steps-add-content input {
+      margin-top: 10px;
+      margin-bottom: 10px; }
+    .steps-add .steps-add-content .close {
+      color: #5C6576;
+      font-size: 28px;
+      font-weight: bold;
+      margin-right: 15px; }

@@ -34,6 +34,19 @@ $(function () {
       $('#modal').css('display', 'none')
     }
   })
+
+  $('.user-table tbody').click(function () {
+    $('#updateUserModal').css('display', 'block')
+  })
+
+  $('.close').click(function () {
+    $('#updateUserModal').css('display', 'none')
+  })
+  $(window).click(function (e) {
+    if (e.target === $('#updateUserModal')) {
+      $('#updateUserModal').css('display', 'none')
+    }
+  })
 })
 
 

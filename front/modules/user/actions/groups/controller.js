@@ -10,4 +10,12 @@ angular.module('app').controller('GroupController', ['$scope', '$http','$window'
     GroupService.setGroupId(id);
     $window.location.href = '#!/user/groups/marks/' + id
   }
+
+    $scope.propertyName = 'id'
+    $scope.reverse = true
+
+    $scope.sortBy = function (propertyName) {
+      $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false
+      $scope.propertyName = propertyName
+    }
 }])

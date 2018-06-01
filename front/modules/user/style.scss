@@ -157,6 +157,12 @@
           transition: 1s ease-out;
         }
 
+        &:focus {
+          color: white;
+          background: rgba(0, 0, 0, 0.4);
+          outline: none;
+        }
+
         span {
           margin-right: 25px;
         }

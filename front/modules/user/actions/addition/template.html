@@ -1,6 +1,8 @@
 <div class="modal" id="modal">
-    <span class="close">&times;</span>
-    <form class="modal-content">
+    <div class="modal-content">
+        <div class="row" align="right">
+            <a class="close"><span class="glyphicon glyphicon-remove"></span></a>
+        </div>
         <div>
             <label for="name">Им'я </label>
             <input id="name" type="text" placeholder="Введіть им'я..." required ng-model="items.firstName">
@@ -27,32 +29,34 @@
         <div>
             <button ng-click="addUser()">Додати</button>
         </div>
-    </form>
+    </div>
 </div>
-<div class="modal" id="updateModal">
-    <span class="close">&times;</span>
-    <form class="modal-content">
+<div class="modal" id="updateUserModal">
+    <div class="modal-content">
+        <div class="row" align="right">
+            <a class="close"><span class="glyphicon glyphicon-remove"></span></a>
+        </div>
         <div>
             <label>Им'я </label>
-            <input type="text" placeholder="{{user.firstName}}" required ng-model="items.firstName">
+            <input type="text" placeholder="{{user.firstName}}" required ng-model="update.firstName">
         </div>
         <div>
             <label>Прізвище </label>
-            <input type="text" placeholder="{{user.lastName}}" required ng-model="items.lastName">
+            <input type="text" placeholder="{{user.lastName}}" required ng-model="update.lastName">
         </div>
         <div>
             <label>Email </label>
-            <input type="text" placeholder="{{user.email}}" required ng-model="items.email">
+            <input type="text" placeholder="{{user.email}}" required ng-model="update.email">
         </div>
         <div>
-            <select ng-model="items.role">
-                <option ng-repeat="role in roles" value="{{role.id}}">{{user.role.name}}</option>
+            <select ng-model="update.role">
+                <option ng-repeat="role in roles" ng-value="role.id">{{role.name}}</option>
             </select>
         </div>
         <div>
-            <button ng-click="addUser()">Додати</button>
+            <button ng-click="setUpdateUser()">Додати</button>
         </div>
-    </form>
+    </div>
 </div>
 <div class="user-addition">
     <div class="user-search">
@@ -85,7 +89,7 @@
             <td>{{user.email}}</td>
             <td>{{user.role.name}}</td>
             <td>
-                <a>
+                <a ng-click="updateUser(user.id)">
                     <span class="glyphicon glyphicon-pencil"></span>
                 </a>
                 <span class="glyphicon glyphicon-option-vertical"></span>

@@ -15,7 +15,6 @@ angular.module('app', ['ngRoute', 'angular.filter', 'app.authentication']).confi
   }
 
   $http.get('http://192.168.0.93:8080/informatics/users').then(function (response) {
-    console.log(response)
     return $rootScope.users = response.data
   })
 

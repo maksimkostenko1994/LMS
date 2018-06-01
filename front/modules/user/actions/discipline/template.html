@@ -1,25 +1,19 @@
-<div class="row">
-    <div class="col-lg-3">
-        <label for="title"></label>
-        <select id="title">
-            <option value=""></option>
-        </select>
+<div class="teacher-courses">
+    <div class="teacher-search">
+        <input type="text" ng-model="searchText" placeholder="Пошук...">
     </div>
-</div>
-<div class="row courses">
-    <table>
-        <thead>
+    <table class="teacher-table">
+        <thead class="teacher-table-head">
         <tr>
-            <th>Назва</th>
-            <th>Рівень кваліфікасії</th>
-            <th>Факультет</th>
-            <th>Спесіальність</th>
-            <th>Семестр</th>
+            <th><a ng-click="sortBy('title')">Назва</a></th>
+            <th class="degree"><a ng-click="sortBy('degree')">Рівень кваліфікації</a></th>
+            <th><a ng-click="sortBy('faculty')">Факультет</a></th>
+            <th><a ng-click="sortBy('speciality')">Спеціальність</a></th>
+            <th><a ng-click="sortBy('semester')">Семестр</a></th>
         </tr>
         </thead>
-
-        <tbody ng-show="user.role.name === 'Методист УНП'">
-        <tr ng-repeat="course in courses" ng-click="getGroups(course.id)">
+        <tbody ng-show="user.role.name === 'Методист УНП'" class="teacher-table-body">
+        <tr ng-repeat="course in courses | orderBy:propertyName:reverse | filter:searchText" ng-click="getGroups(course.id)">
             <td>{{course.title}}</td>
             <td>{{course.degree}}</td>
             <td>{{course.faculty}}</td>
@@ -27,14 +21,16 @@
             <td>{{course.semester}}</td>
         </tr>
         </tbody>
-        <tbody ng-show="user.role.name === 'Викладач'">
-        <tr ng-repeat="course in teacher" ng-click="getGroups(course.id)">
-            <td>{{course.title}}</td>
-            <td>{{course.degree}}</td>
-            <td>{{course.faculty}}</td>
-            <td>{{course.speciality}}</td>
-            <td>{{course.semester}}</td>
+        <tbody ng-show="user.role.name === 'Викладач'" class="teacher-table-body">
+        <tr ng-repeat="course in courses | orderBy:propertyName:reverse | filter:searchText" ng-click="getGroups(course.course.id)">
+            <td>{{course.course.title}}</td>
+            <td>{{course.course.degree}}</td>
+            <td>{{course.course.faculty}}</td>
+            <td>{{course.course.speciality}}</td>
+            <td>{{course.course.semester | number:0}}</td>
         </tr>
         </tbody>
     </table>
 </div>
+
+

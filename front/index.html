@@ -70,7 +70,8 @@
             </div>
             <div class="div3"><a href="#!/user/profile"><span class="glyphicon glyphicon-user"></span>
                 {{user.firstName}} {{user.lastName}}</a></div>
-            <div class="div1"><a href="#!/user/hello" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span>
+            <div class="div1"><a href="#!/user/hello" ng-click="logout()"><span
+                    class="glyphicon glyphicon-log-out"></span>
                 Вихід</a></div>
         </div>
     </div>
@@ -81,54 +82,54 @@
                     <ul type="none">
                         <li>
                             <a href="#!/user/hello">
-                                <div><span class="glyphicon glyphicon-home"></span> Привітання
+                                <div tabindex="1"><span class="glyphicon glyphicon-home"></span> Привітання
                                 </div>
                             </a>
                         </li>
                         <li ng-show="user.role.name ==='Адміністратор'">
                             <a href="#!/user/addition">
-                                <div><span class="glyphicon glyphicon-user"></span> Менеджмент користувачів
+                                <div tabindex="1"><span class="glyphicon glyphicon-user"></span> Менеджмент користувачів
                                 </div>
                             </a>
                         </li>
                         <li ng-show="user.role.name ==='Секретар ПК'">
                             <a href="#!/user/entrants">
-                                <div>
+                                <div tabindex="1">
                                     <span class="glyphicon glyphicon-education"></span> Абітурієнти
                                 </div>
                             </a>
                         </li>
                         <li ng-show="user.role.name ==='Методист НМР'">
                             <a href="#!/user/lecturers">
-                                <div>
+                                <div tabindex="1">
                                     <span class="glyphicon glyphicon-briefcase"></span> Викладачі
                                 </div>
                             </a>
                         </li>
                         <li ng-show="user.role.name ==='Методист УНП' || user.role.name ==='Методист НМР'">
                             <a href="#!/user/edplanes">
-                                <div>
+                                <div tabindex="1">
                                     <span class="glyphicon glyphicon-book"></span> Навчальні плани
                                 </div>
                             </a>
                         </li>
-                        <li ng-show="user.role.name ==='Методист УНП'">
+                        <li ng-show="user.role.name ==='Методист УНП' || user.role.name ==='Викладач'">
                             <a href="#!/user/discipline">
-                                <div>
+                                <div tabindex="1">
                                     <span class="glyphicon glyphicon-list-alt"></span> Робота зі студентами
                                 </div>
                             </a>
                         </li>
                         <li ng-show="user.role.name ==='Викладач'">
                             <a href="#!/user/courses">
-                                <div>
-                                    <span class="glyphicon glyphicon-book"></span> Навчальні плани
+                                <div tabindex="1">
+                                    <span class="glyphicon glyphicon-book"></span> Дисципліни
                                 </div>
                             </a>
                         </li>
                         <li ng-show="user.role.name ==='Адміністратор'">
                             <a ng-click="getIntegration()">
-                                <div>
+                                <div tabindex="1">
                                     <span class="glyphicon glyphicon-refresh"></span> Інтеграсія з Optima
                                 </div>
                             </a>
@@ -136,13 +137,15 @@
                     </ul>
                 </div>
                 <!--<button class="btn-bot">-->
-                    <!--<span class="glyphicon glyphicon-menu-left"></span>-->
+                <!--<span class="glyphicon glyphicon-menu-left"></span>-->
                 <!--</button>-->
             </div>
         </div>
         <div class="col-lg-9">
-            <div class="main-template">
-                <ng-view></ng-view>
+            <div class="row">
+                <div class="main-template">
+                    <ng-view></ng-view>
+                </div>
             </div>
         </div>
     </div>

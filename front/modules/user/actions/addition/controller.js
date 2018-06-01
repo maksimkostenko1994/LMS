@@ -11,8 +11,21 @@ angular.module('app').controller('AddController', ['$scope', '$http', function (
       console.log(res)
     })
   }
-  $scope.getUser = function(id) {
-    return $scope.editUser = id;
+  $scope.getUser = function (id) {
+    return $scope.editUser = id
+  }
+
+  $scope.updateUser = function (id) {
+    console.log(id)
+    $http.post('http://192.168.0.93:8080/informatics/user/id', id).then(function (res) {
+      console.log('Updated user ' + JSON.stringify(res.data))
+      return $scope.update = res.data
+    })
+  }
+
+  $scope.setUpdateUser = function () {
+    console.log($scope.update)
+    $http.post('http://192.168.0.93:8080/informatics/updateUser?admin', $scope.update)
   }
 
   $scope.propertyName = 'id'
