@@ -1,14 +1,20 @@
 <div class="teacher-steps">
     <div class="steps-search">
-        <div class="col-lg-6">
-            <input type="text" ng-model="searchText" placeholder="Пошук...">
+        <div class="row">
+            <div class="col-lg-5">
+                <input type="text" ng-model="searchText" placeholder="Пошук...">
+            </div>
+            <div class="col-lg-5">
+                <h2>{{id_course.name}}</h2>
+            </div>
+            <div class="col-lg-2" align="right">
+                <div class="step-addition">
+                    <a id="stepModalBtn"><span class="glyphicon glyphicon-plus"></span></a>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="step-addition" align="right">
-        <div class="col-lg-6">
-            <a id="stepModalBtn"><span class="glyphicon glyphicon-plus"></span></a>
-        </div>
-    </div>
+
     <table class="steps-table">
         <thead class="steps-table-head">
         <tr>
@@ -27,6 +33,7 @@
         </tr>
         </tbody>
     </table>
+    <div class="table-bottom"></div>
 </div>
 <div id="stepModal" class="steps-add">
     <div class="steps-add-content">
@@ -37,7 +44,9 @@
             <input type="text" ng-model="newStep.title">
         </div>
         <div class="row">
-            <input type="text" ng-model="newStep.type">
+            <select ng-model="newStep.type">
+                <option ng-repeat="type in types">{{type}}</option>
+            </select>
         </div>
         <div class="row">
             <select ng-model="newStep.week">
@@ -61,7 +70,9 @@
             <input type="text" value="update.title" ng-model="update.title">
         </div>
         <div class="row">
-            <input type="text" value="update.title" ng-model="update.type">
+            <select ng-model="update.type">
+                <option ng-repeat="type in types" ng-selected="type[0]">{{type}}</option>
+            </select>
         </div>
         <div class="row">
             <select ng-model="update.week">

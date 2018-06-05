@@ -6,20 +6,20 @@ angular.module('app', ['ngRoute', 'angular.filter', 'app.authentication']).confi
   }]).run(['$rootScope', '$http', '$window', function ($rootScope, $http, $window) {
   $rootScope.item = {email: '', password: ''}
   $rootScope.login = function () {
-    $http.post('http://192.168.0.93:8080/informatics/login', $rootScope.item).then(function (response) {
+    $http.post('http://192.168.43.16:8080/informatics/login', $rootScope.item).then(function (response) {
       store.set('token', response.data.token)
       store.set('user', response.data.user)
       return $rootScope.user = response.data.user
     })
     $window.location.href = '#!/user/hello'
   }
-
-  $http.get('http://192.168.0.93:8080/informatics/users').then(function (response) {
+  // 192.168.0.93
+  $http.get('http://192.168.43.16:8080/informatics/users').then(function (response) {
     return $rootScope.users = response.data
   })
 
   $rootScope.getIntegration = function() {
-    $http.get('http://192.168.0.93:8080/informatics/integrateWithOptima');
+    $http.get('http://192.168.43.16:8080/informatics/integrateWithOptima');
   }
 
   $rootScope.user = JSON.parse(localStorage.getItem('user'))

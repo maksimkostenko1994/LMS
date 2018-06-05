@@ -1,7 +1,9 @@
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'jquery/dist/jquery.min.js'
+import 'bootstrap/dist/js/bootstrap.min.js'
 import 'angular'
 import 'angular-route'
 import 'angular-filter'
-import 'jquery'
 import './authentication'
 import './main'
 import './routes'
@@ -14,18 +16,15 @@ import './modules/user/actions/edplanes/controller' //+
 import './modules/user/actions/discipline/controller' //+
 import './modules/user/actions/search/controller' //+
 import './modules/user/actions/profile/controller' //+
-import'./modules/user/actions/groups/controller' //+
-import'./modules/user/actions/marks/controller' //+
-import'./modules/user/actions/courses/controller' //+
-import'./modules/user/actions/steps/controller' //+
-import'./modules/user/actions/hello/controller' //+
+import './modules/user/actions/groups/controller' //+
+import './modules/user/actions/marks/controller' //+
+import './modules/user/actions/courses/controller' //+
+import './modules/user/actions/steps/controller' //+
+import './modules/user/actions/hello/controller'
+import './modules/user/actions/rate/controller'//+
 
 //service
 import './modules/user/actions/groups/service'
-
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap/dist/js/bootstrap.min.js'
-import 'bootstrap'
 
 import 'webpack-icons-installer/bootstrap'
 
@@ -40,6 +39,7 @@ import './modules/user/actions/marks/style.scss'
 import './modules/user/actions/courses/style.scss'
 import './modules/user/actions/hello/style.scss'
 import './modules/user/actions/steps/style.scss'
+import './modules/user/actions/rate/style.scss'
 
 // style.js
 import './style'
@@ -47,6 +47,7 @@ import './modules/user/actions/addition/style'
 import './modules/user/actions/profile/style'
 import './modules/user/actions/steps/style'
 import './modules/user/actions/steps/callendar'
+import './modules/user/actions/marks/style'
 
 //import './menu'
 

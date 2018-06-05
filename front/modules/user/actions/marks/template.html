@@ -1,18 +1,36 @@
-<div class="marks">
-    <a ng-click="getExcel(groupId)">Експорт в Excel</a>
-    <table>
-        <thead>
-            <tr>
-                <th></th>
-                <th ng-repeat="test in marks| unique:'title'">{{test.title}}</th>
-            </tr>
+<div class="groups-marks">
+    <div class="marks-search">
+        <div class="row">
+            <div class="col-lg-5">
+                <input type="text" ng-model="searchText" placeholder="Пошук...">
+            </div>
+            <div class="col-lg-7">
+                <h2>{{course_name.name}} (Група-{{groupId.name}})</h2>
+            </div>
+        </div>
+    </div>
+    <table class="marks-table">
+        <thead class="marks-table-head">
+        <tr>
+            <th></th>
+            <th ng-repeat="test in marks| unique:'title'">{{test.title}}</th>
+        </tr>
         </thead>
 
-        <tbody>
-            <tr ng-repeat="title in marks| unique:'name'| orderBy:'name'">
-                <td>{{title.name}}</td>
-                <td ng-repeat="grade in marks" ng-if="title.name===grade.name">{{grade.grade}}</td>
-            </tr>
+        <tbody class="marks-table-body">
+        <tr ng-repeat="title in marks| unique:'name'| orderBy:'name' | filter:searchText">
+            <td>{{title.name}}</td>
+            <td ng-repeat="grade in marks" ng-if="title.name===grade.name">
+                <input ng-show="user.role.name==='Викладач'" data-toggle="tooltip" title="Enter" type="number" placeholder="{{grade.grade}}" max="100" maxlength="3" min="0"
+                       ng-keypress="checkIfEnterKeyWasPressed($event, {grade: grade.grade, id: grade.gradeId, step: grade.stepId, student: grade.studentId})"
+                       ng-model="grade.grade">
+                <p ng-show="user.role.name==='Методист УНП'">{{grade.grade}}</p>
+
+            </td>
+        </tr>
         </tbody>
     </table>
+    <div class="table-bottom">
+        <a ng-show="user.role.name === 'Методист УНП'" ng-click="getExcel(groupId.id)">Експорт в Excel</a>
+    </div>
 </div>

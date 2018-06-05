@@ -13,7 +13,7 @@
         </tr>
         </thead>
         <tbody ng-show="user.role.name === 'Методист УНП'" class="teacher-table-body">
-        <tr ng-repeat="course in courses | orderBy:propertyName:reverse | filter:searchText" ng-click="getGroups(course.id)">
+        <tr ng-repeat="course in courses | orderBy:propertyName:reverse | filter:searchText" ng-click="getGroups({id: course.id, name: course.title})">
             <td>{{course.title}}</td>
             <td>{{course.degree}}</td>
             <td>{{course.faculty}}</td>
@@ -22,7 +22,7 @@
         </tr>
         </tbody>
         <tbody ng-show="user.role.name === 'Викладач'" class="teacher-table-body">
-        <tr ng-repeat="course in courses | orderBy:propertyName:reverse | filter:searchText" ng-click="getGroups(course.course.id)">
+        <tr ng-repeat="course in teacher | orderBy:propertyName:reverse | filter:searchText" ng-click="getGroups({id: course.course.id, name: course.course.title})">
             <td>{{course.course.title}}</td>
             <td>{{course.course.degree}}</td>
             <td>{{course.course.faculty}}</td>
@@ -31,6 +31,7 @@
         </tr>
         </tbody>
     </table>
+    <div class="table-bottom"></div>
 </div>
 
 

@@ -1,0 +1,62 @@
+<div class="get-rate">
+    <div class="rate-search">
+        <div class="row">
+            <div class="col-lg-5">
+                <input type="text" ng-model="searchText" placeholder="Пошук...">
+            </div>
+            <div class="col-lg-7">
+                <h5>Рейтинг за {{get_rate.speciality}} {{get_rate.level}} рік - {{get_rate.year}} семестр -
+                    {{get_rate.semester}} <span
+                            ng-show="get_rate.speciality!=='' && get_rate.level!=='' && get_rate.year!=='' && get_rate.semester!==''"><button
+                            ng-click="getRate()" class="button-add"><span class="glyphicon glyphicon-plus"></span></button></span>
+                </h5>
+            </div>
+        </div>
+    </div>
+    <div class="rate">
+        <div class="row">
+            <div class="col-md-3 col-lg-3">
+                <label for="get_rate.level">Рівні кваліфікації</label>
+                <select id="get_rate.level" ng-model="get_rate.level">
+                    <option ng-repeat="d in degree">{{d}}</option>
+                </select>
+            </div>
+            <div class="col-md-5 col-lg-5">
+                <label for="get_rate.speciality">Спеціальність</label>
+                <select id="get_rate.speciality" ng-model="get_rate.speciality">
+                    <option ng-if="get_rate.level==='Бакалавр'" ng-repeat="s in specializes_b">{{s}}</option>
+                    <option ng-if="get_rate.level==='Магістр'" ng-repeat="s in specializes_m">{{s}}</option>
+                </select>
+            </div>
+            <div class="col-md-2 col-lg-2">
+                <label for="get_rate.year">Рік навчання</label>
+                <select id="get_rate.year" ng-model="get_rate.year">
+                    <option ng-if="get_rate.level==='Бакалавр'" ng-repeat="y in year_b">{{y}}</option>
+                    <option ng-if="get_rate.level==='Магістр'" ng-repeat="y in year_m">{{y}}</option>
+                </select>
+            </div>
+            <div class="col-md-2 col-lg-2">
+                <label for="get_rate.semester">Семестр</label>
+                <select id="get_rate.semester" ng-model="get_rate.semester">
+                    <option ng-if="get_rate.level==='Бакалавр'" ng-repeat="y in semester_b">{{y}}</option>
+                    <option ng-if="get_rate.level==='Магістр'" ng-repeat="y in semester_m">{{y}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <table class="rate-table">
+        <thead class="rate-table-head">
+        <tr>
+            <th>ПІБ</th>
+            <th><a ng-click="sortBy('grade')">Рейтинг</a></th>
+        </tr>
+        </thead>
+        <tbody class="rate-table-body">
+        <tr ng-repeat="rate in rates | orderBy:propertyName:reverse | filter:searchText">
+            <td>{{rate.name}}</td>
+            <td>{{rate.grade}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="table-bottom"><a ng-click="getRateExcel()">Експорт в Excel</a></div>
+</div>

@@ -13,7 +13,7 @@
         </tr>
         </thead>
         <tbody class="teacher-table-body">
-        <tr ng-repeat="course in courses | orderBy:propertyName:reverse | filter:searchText" ng-click="sentId(course.course.id)">
+        <tr ng-repeat="course in courses | orderBy:propertyName:reverse | filter:searchText" ng-click="sentId({id: course.course.id, name: course.course.title})">
             <td>{{course.course.title}}</td>
             <td>{{course.course.degree}}</td>
             <td>{{course.course.faculty}}</td>
@@ -22,4 +22,5 @@
         </tr>
         </tbody>
     </table>
+    <div class="table-bottom"></div>
 </div>

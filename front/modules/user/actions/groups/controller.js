@@ -1,13 +1,12 @@
 angular.module('app').controller('GroupController', ['$scope', '$http','$window','GroupService',
   function ($scope, $http,$window, GroupService) {
-  let id = GroupService.getDId();
-  $http.get('http://192.168.0.93:8080/informatics/group/id/' + id).then(function (res) {
-    console.log(res.data)
+  $scope.id = GroupService.getDId();
+  $http.get('http://192.168.43.16:8080/informatics/group/id/' + $scope.id.id).then(function (res) {
     return $scope.groups = res.data;
   })
 
-  $scope.getMarks = function (id) {
-    GroupService.setGroupId(id);
+  $scope.getMarks = function ({id, name}) {
+    GroupService.setGroupId({id,name});
     $window.location.href = '#!/user/groups/marks/' + id
   }
 

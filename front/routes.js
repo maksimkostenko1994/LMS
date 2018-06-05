@@ -39,5 +39,9 @@ angular.module('app').config(['$routeProvider', '$locationProvider', function ($
       templateUrl: './modules/user/actions/steps/template.html',
       controller: 'StepsController'
     })
+    .when('/user/rate', {
+      templateUrl: './modules/user/actions/rate/template.html',
+      controller: 'RateController'
+    })
   $locationProvider.html5Mode({enable: true, requireBase: false}).hashPrefix('!')
 }])

@@ -3,17 +3,16 @@ angular.module('app').controller('DisciplineController', ['$scope', '$http', '$w
 
     let user = JSON.parse(localStorage.getItem('user'))
 
-    $http.get(`http://192.168.0.93:8080/informatics/courses/teacher/${user.id}`).then(function (res) {
-      return $scope.courses = res.data
-    })
-
-    $http.get('http://192.168.0.93:8080/informatics/courses?active').then(function (res) {
-      console.log(res.data)
+    $http.get(`http://192.168.43.16:8080/informatics/courses/teacher/${user.id}`).then(function (res) {
       return $scope.teacher = res.data
     })
 
-    $scope.getGroups = function (id) {
-      GroupService.setDId(id)
+    $http.get('http://192.168.43.16:8080/informatics/courses?active').then(function (res) {
+      return $scope.courses = res.data
+    })
+
+    $scope.getGroups = function ({id, name}) {
+      GroupService.setDId({id, name})
       $window.location.href = '#!/user/groups/' + id
     }
 

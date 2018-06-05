@@ -4,9 +4,7 @@ angular.module('app').controller('ProfileController', ['$scope', '$http', functi
 
   $scope.update = function () {
     if ($scope.items.email !== null && $scope.items.password !== null && $scope.items.password !== $scope.user.password) {
-      $http.post('http://192.168.0.93:8080/informatics/updateUser', $scope.items).then(function (res) {
-        console.log(res)
-      })
+      $http.post('http://192.168.43.16:8080/informatics/updateUser', $scope.items);
     }
   }
 }])

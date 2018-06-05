@@ -11,7 +11,7 @@ $(function () {
     }
   })
 
-  $('.steps-table').click(function () {
+  $('.steps-table .steps-table-body').click(function () {
     $('#updateModal').css('display', 'block')
   })
 

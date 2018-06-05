@@ -1,15 +1,15 @@
 angular.module('app').service('GroupService', [function () {
 
-  function setDId(id) {
-    return localStorage.setItem('d_id', id);
+  function setDId({id, name}) {
+    return localStorage.setItem('d_id', JSON.stringify({id: id,name: name}));
   }
 
   function getDId () {
     return JSON.parse(localStorage.getItem('d_id'))
   }
 
-  function setGroupId(id) {
-    return localStorage.setItem('group_id', id);
+  function setGroupId({id, name}) {
+    return localStorage.setItem('group_id', JSON.stringify({id: id,name: name}));
   }
 
   function getGroupId () {
